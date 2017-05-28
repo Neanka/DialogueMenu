@@ -1,0 +1,32 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="List" itemID="5922873f-000000e5" linkageExportForAS="true" linkageClassName="DialogueList" lastModified="1495910472">
+  <timeline>
+    <DOMTimeline name="List">
+      <layers>
+        <DOMLayer name="Слой 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="listmc_brackets" name="brackets">
+                  <matrix>
+                    <Matrix a="1.45710754394531" d="1.03329467773438" tx="-10" ty="-9.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="listborder" name="border" selected="true">
+                  <matrix>
+                    <Matrix a="2" d="0.72332763671875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="250" y="150"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

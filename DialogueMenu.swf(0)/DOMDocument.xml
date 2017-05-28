@@ -1,0 +1,121 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#333333" gridColor="#C0C0C0" guidesColor="#000000" width="1280" height="720" frameRate="30" currentTimeline="1" xflVersion="2.8" creatorInfo="Adobe Animate CC" platform="Windows" versionInfo="Saved by Animate Windows 16.0 build 119" majorVersion="16" buildNumber="119" gridSpacingX="18" gridSpacingY="18" gridSnapAccuracy="Can be distant" guidesSnapAccuracy="Can be distant" guidesSnapTo="false" guidesVisible="false" snapAlignBorderSpacing="18" snapAlignHorizontalSpacing="10" snapAlignVerticalSpacing="10" objectsSnapTo="false" useCarbonLineSpacing="true" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="DD0DDBBF-5BEF-45B2-9F24-A3048D2A676F">
+     <folders>
+          <DOMFolderItem name="Shapes" itemID="5922779c-000000d8"/>
+          <DOMFolderItem name="Sprites" itemID="5922779c-000000d7" isExpanded="true"/>
+     </folders>
+     <fonts>
+          <DOMFontItem name="$MAIN_Font" itemID="592285bc-00000058" linkageImportForRS="true" linkageExportInFirstFrame="false" linkageClassName="$MAIN_Font" linkageURL="fonts_en.swf" font="RobotoCondensed-Regular" size="0" id="1" sourceLastImported="1495434700" embedRanges="9999"/>
+          <DOMFontItem name="$MAIN_Font_Bold" itemID="592285e4-0000005a" linkageImportForRS="true" linkageExportInFirstFrame="false" linkageClassName="$MAIN_Font_Bold" linkageURL="fonts_en.swf" font="RobotoCondensed-Bold" size="0" id="2" sourceLastImported="1495434724" embedRanges="9999"/>
+          <DOMFontItem name="Monofonto" itemID="5925ca2c-00000027" font="Monofonto-Regular" size="0" id="3" sourceLastImported="1495648812" embedRanges="9999"/>
+     </fonts>
+     <symbols>
+          <Include href="bracketsbg.xml" loadImmediate="false" itemID="5925df9e-0000007e" lastModified="1495656698"/>
+          <Include href="entryborder.xml" loadImmediate="false" itemID="592296e7-000001a5" lastModified="1495439107"/>
+          <Include href="gentryborder.xml" itemIcon="1" loadImmediate="false" itemID="592296de-000001a3" lastModified="1495651614"/>
+          <Include href="glistborder.xml" itemIcon="1" loadImmediate="false" itemID="592286f5-000000e0" lastModified="1495435046"/>
+          <Include href="List.xml" itemID="5922873f-000000e5" lastModified="1495910472"/>
+          <Include href="listborder.xml" loadImmediate="false" itemID="592286e9-000000dd" lastModified="1495651364"/>
+          <Include href="ListEntry.xml" itemID="59229726-000001ab" lastModified="1495917034"/>
+          <Include href="listmc_brackets.xml" itemID="5925deed-00000078" lastModified="1495656760"/>
+          <Include href="Shapes/Shape 1.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000d4" lastModified="1495431068"/>
+          <Include href="Shapes/Shape 3.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000d6" lastModified="1495431068"/>
+          <Include href="Shapes/Shape 13.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000cb" lastModified="1495431068"/>
+          <Include href="Shapes/Shape 14.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000cc" lastModified="1495431068"/>
+          <Include href="Shapes/Shape 15.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000cd" lastModified="1495431068"/>
+          <Include href="Shapes/Shape 16.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000ce" lastModified="1495431068"/>
+          <Include href="Shapes/Shape 17.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000cf" lastModified="1495431068"/>
+          <Include href="Shapes/Shape 18.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000d0" lastModified="1495431068"/>
+          <Include href="Shapes/Shape 19.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000d1" lastModified="1495431068"/>
+          <Include href="Sprites/Sprite 2.xml" loadImmediate="false" itemID="5922779c-000000d3" lastModified="1495431068"/>
+          <Include href="Sprites/Sprite 4.xml" loadImmediate="false" itemID="5922779c-000000d5" lastModified="1495431068"/>
+          <Include href="Sprites/Sprite 5.xml" itemID="5922779c-000000d2" lastModified="1495431068"/>
+          <Include href="Sprites/Sprite 8.xml" loadImmediate="false" itemID="5922779c-000000c8" lastModified="1495434814"/>
+          <Include href="Sprites/Sprite 9.xml" itemID="5922779c-000000c7" lastModified="1495431068"/>
+          <Include href="Sprites/Sprite 10.xml" itemID="5922779c-000000c6" lastModified="1495434805"/>
+          <Include href="Sprites/Sprite 11.xml" loadImmediate="false" itemID="5922779c-000000c5" lastModified="1495437593"/>
+          <Include href="Sprites/Sprite 12.xml" itemID="5922779c-000000c4" lastModified="1495438069"/>
+          <Include href="Sprites/Sprite 20.xml" itemID="5922779c-000000ca" lastModified="1495431068"/>
+          <Include href="Sprites/Sprite 21.xml" itemID="5922779c-000000c9" lastModified="1495436745"/>
+          <Include href="Sprites/Sprite 22.xml" loadImmediate="false" itemID="5922779c-000000c3" lastModified="1495438008"/>
+          <Include href="Sprites/Sprite 23.xml" itemID="5922779c-000000c2" lastModified="1495436479"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Page 1">
+               <layers>
+                    <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+                         <frames>
+                              <DOMFrame index="0" keyMode="8704">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="Sprites/Sprite 23" name="Menu_mc">
+                                             <matrix>
+                                                  <Matrix tx="640" ty="684"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                        <DOMSymbolInstance libraryItemName="List" name="List_mc">
+                                             <matrix>
+                                                  <Matrix a="0.699996948242188" d="0.699996948242188" tx="290" ty="490"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="250.05" y="150.05"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                        <DOMDynamicText name="dtf" fontRenderingMode="device" width="944.8" height="336.65" isSelectable="false">
+                                             <matrix>
+                                                  <Matrix tx="47.5" ty="63.35"/>
+                                             </matrix>
+                                             <textRuns>
+                                                  <DOMTextRun>
+                                                       <characters></characters>
+                                                       <textAttrs>
+                                                            <DOMTextAttrs aliasText="false" autoKern="false" useScreenSpacing="true" lineSpacing="5" lineHeight="26.35" size="20" bitmapSize="400" face="$MAIN_Font*" fillColor="#FFFFFF"/>
+                                                       </textAttrs>
+                                                  </DOMTextRun>
+                                             </textRuns>
+                                        </DOMDynamicText>
+                                        <DOMDynamicText name="name_tf" selected="true" fontRenderingMode="device" top="7.95" width="709" height="31" isSelectable="false">
+                                             <matrix>
+                                                  <Matrix tx="285" ty="442.05"/>
+                                             </matrix>
+                                             <textRuns>
+                                                  <DOMTextRun>
+                                                       <characters></characters>
+                                                       <textAttrs>
+                                                            <DOMTextAttrs alignment="center" aliasText="false" useScreenSpacing="true" lineHeight="26.35" size="20" bitmapSize="400" face="$MAIN_Font*" fillColor="#FFFFFF"/>
+                                                       </textAttrs>
+                                                  </DOMTextRun>
+                                             </textRuns>
+                                        </DOMDynamicText>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <PrinterSettings/>
+     <publishHistory>
+          <PublishItem publishSize="43761" publishTime="1495917716"/>
+          <PublishItem publishSize="43754" publishTime="1495917351"/>
+          <PublishItem publishSize="43741" publishTime="1495917194"/>
+          <PublishItem publishSize="43781" publishTime="1495917126"/>
+          <PublishItem publishSize="43757" publishTime="1495917042"/>
+          <PublishItem publishSize="43755" publishTime="1495916900"/>
+          <PublishItem publishSize="43699" publishTime="1495916826"/>
+          <PublishItem publishSize="43734" publishTime="1495916738"/>
+          <PublishItem publishSize="43679" publishTime="1495916581"/>
+          <PublishItem publishSize="43679" publishTime="1495916542"/>
+          <PublishItem publishSize="43784" publishTime="1495916104"/>
+          <PublishItem publishSize="43707" publishTime="1495915898"/>
+          <PublishItem publishSize="43620" publishTime="1495915569"/>
+          <PublishItem publishSize="43639" publishTime="1495915434"/>
+          <PublishItem publishSize="43626" publishTime="1495915420"/>
+          <PublishItem publishSize="43516" publishTime="1495915318"/>
+          <PublishItem publishSize="43450" publishTime="1495915161"/>
+          <PublishItem publishSize="43441" publishTime="1495914908"/>
+          <PublishItem publishSize="43436" publishTime="1495914423"/>
+          <PublishItem publishSize="43538" publishTime="1495914310"/>
+     </publishHistory>
+</DOMDocument>

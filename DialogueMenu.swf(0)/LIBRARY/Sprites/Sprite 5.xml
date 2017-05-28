@@ -1,0 +1,40 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Sprites/Sprite 5" itemID="5922779c-000000d2" linkageExportForAS="true" linkageExportForRS="true" linkageIdentifier="Shared.AS3.BSButtonHintBar" linkageClassName="Shared.AS3.BSButtonHintBar" sourceFlashFilepath="Sprite 5" lastModified="1495431068" sourceItemID="00000000-ffffffff">
+  <timeline>
+    <DOMTimeline name="Sprite 5">
+      <layers>
+        <DOMLayer name="Layer 3" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="8704">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Sprites/Sprite 4" name="ButtonBracket_Left_mc">
+                  <matrix>
+                    <Matrix tx="-20.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="8704">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Sprites/Sprite 2" name="ButtonBracket_Right_mc">
+                  <matrix>
+                    <Matrix tx="12.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
