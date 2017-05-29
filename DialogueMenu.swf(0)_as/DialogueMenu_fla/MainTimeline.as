@@ -95,7 +95,7 @@
 			trace(String(obj["__var__"]["__struct__"]["__data__"]["qtext"]));
 			trace(int(obj["__var__"]["__struct__"]["__data__"]["iFilterFlag"]));
 				tempar.push({
-					"scene": String(obj["__var__"]["__struct__"]["__data__"]["sScene"]),
+					//"scene": String(obj["__var__"]["__struct__"]["__data__"]["sScene"]),
 					"text": String(obj["__var__"]["__struct__"]["__data__"]["qtext"]),
 					"filterFlag": int(obj["__var__"]["__struct__"]["__data__"]["iFilterFlag"]),
 					"type": int(obj["__var__"]["__struct__"]["__data__"]["qType"]),
@@ -153,10 +153,20 @@
 			this.List_mc.filterer.itemFilter = iFilterFlag;			
 			listprocedures();
 		}
+		public function addfilterflag(iFilterFlag: Number):*{
+		atrace("add flag")
+			this.List_mc.filterer.itemFilter = this.List_mc.filterer.itemFilter | iFilterFlag;			
+			listprocedures();
+		}
+		public function removefilterflag(iFilterFlag: Number):*{
+		atrace("remove flag")
+			this.List_mc.filterer.itemFilter = this.List_mc.filterer.itemFilter & ~iFilterFlag;			
+			listprocedures();
+		}
 
 		private function onItemPress(_arg_1: Event) {
 		atrace("itemlist "+String(this.List_mc.selectedIndex)+" clicked")
-		root.f4se.SendExternalEvent("Dialogue::OptionReturned",scenename,this.List_mc.selectedIndex);//this.List_mc.selectedEntry.scene
+		root.f4se.SendExternalEvent("Dialogue::OptionReturned",scenename,this.List_mc.selectedIndex,int(this.List_mc.selectedEntry.val));//this.List_mc.selectedEntry.scene
 		if (this.List_mc.selectedIndex<4) {
 		atrace("running default function");
 			Menu_mc.onButtonRelease(this.List_mc.selectedIndex);

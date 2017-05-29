@@ -94,7 +94,7 @@
 			sa1.rotation = 90;
 			sa1.x -= 7;
 			sa1.y += 13;
-			this.sa1.Track_mc.width = 155;//this.border.height*this.border.scaleY;
+			this.sa1.Track_mc.width = 191;//this.border.height*this.border.scaleY;
 
 				if (this.ScrollUp != null){
 					this.ScrollUp.visible = false;

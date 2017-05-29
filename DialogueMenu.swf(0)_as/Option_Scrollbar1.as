@@ -49,7 +49,7 @@
 			RightArrow_mc.graphics.lineTo(8, 3);
 			RightArrow_mc.graphics.lineTo(3, 10);
 			addChild(RightArrow_mc);
-			RightArrow_mc.x = 157;
+			RightArrow_mc.x = 193;
 			ValueInit();
             addEventListener(MouseEvent.CLICK, this.onClick);
             this.Thumb_mc.addEventListener(MouseEvent.MOUSE_DOWN, this.onThumbMouseDown);

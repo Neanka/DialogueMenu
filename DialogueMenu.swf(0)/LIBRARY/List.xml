@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="List" itemID="5922873f-000000e5" linkageExportForAS="true" linkageClassName="DialogueList" lastModified="1495910472">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="List" itemID="5922873f-000000e5" linkageExportForAS="true" linkageClassName="DialogueList" lastModified="1495999559">
   <timeline>
     <DOMTimeline name="List">
       <layers>
@@ -8,15 +8,15 @@
               <elements>
                 <DOMSymbolInstance libraryItemName="listmc_brackets" name="brackets">
                   <matrix>
-                    <Matrix a="1.45710754394531" d="1.03329467773438" tx="-10" ty="-9.95"/>
+                    <Matrix a="1.45710754394531" d="1.14280700683594" tx="-10" ty="-9.95"/>
                   </matrix>
                   <transformationPoint>
                     <Point y="-0.05"/>
                   </transformationPoint>
                 </DOMSymbolInstance>
-                <DOMSymbolInstance libraryItemName="listborder" name="border" selected="true">
+                <DOMSymbolInstance libraryItemName="listborder" name="border">
                   <matrix>
-                    <Matrix a="2" d="0.72332763671875"/>
+                    <Matrix a="2" d="0.79998779296875"/>
                   </matrix>
                   <transformationPoint>
                     <Point x="250" y="150"/>
