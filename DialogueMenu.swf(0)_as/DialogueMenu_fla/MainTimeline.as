@@ -12,6 +12,7 @@
 		private var debugmode: Boolean = false;
 		public var List_mc: DialogueList;
 		public var name_tf: TextField;
+		public var quest_tf: TextField;
 		public var dtf: TextField;
 		private var _datarecieved: Boolean = false;
 		private var _originalfilled: Boolean = false;
@@ -94,6 +95,7 @@
 			trace(String(obj["__var__"]["__struct__"]["__data__"]["sScene"]));
 			trace(String(obj["__var__"]["__struct__"]["__data__"]["qtext"]));
 			trace(int(obj["__var__"]["__struct__"]["__data__"]["iFilterFlag"]));
+			trace(int(obj["__var__"]["__struct__"]["__data__"]["qIcon"]));
 				tempar.push({
 					//"scene": String(obj["__var__"]["__struct__"]["__data__"]["sScene"]),
 					"text": String(obj["__var__"]["__struct__"]["__data__"]["qtext"]),
@@ -103,7 +105,8 @@
 					"minval": int(obj["__var__"]["__struct__"]["__data__"]["qMinVal"]),
 					"maxval": int(obj["__var__"]["__struct__"]["__data__"]["qMaxVal"]),
 					"qTextColor": int(obj["__var__"]["__struct__"]["__data__"]["qTextColor"]),
-					"qBorderColor": int(obj["__var__"]["__struct__"]["__data__"]["qBorderColor"])
+					"qBorderColor": int(obj["__var__"]["__struct__"]["__data__"]["qBorderColor"]),
+					"icon": int(obj["__var__"]["__struct__"]["__data__"]["qIcon"])
 				});
 			i++;
 			}
@@ -119,7 +122,8 @@
 			this.List_mc.InvalidateData();
 			this.List_mc.brackets.height = 21+this.List_mc.itemsShown*36;
 			this.List_mc.UpdateList();
-			this.List_mc.selectedIndex = 0;
+			//this.List_mc.selectedIndex = 0;
+			this.List_mc.selectedIndex = this.List_mc.GetEntryFromClipIndex(0);
 			stage.focus = this.List_mc;
 		}
 

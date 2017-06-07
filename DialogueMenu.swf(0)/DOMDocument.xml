@@ -13,9 +13,13 @@
           <Include href="entryborder.xml" loadImmediate="false" itemID="592296e7-000001a5" lastModified="1495439107"/>
           <Include href="gentryborder.xml" itemIcon="1" loadImmediate="false" itemID="592296de-000001a3" lastModified="1495651614"/>
           <Include href="glistborder.xml" itemIcon="1" loadImmediate="false" itemID="592286f5-000000e0" lastModified="1495435046"/>
+          <Include href="icon_barter.xml" itemID="592c25b5-00000030" lastModified="1496067696"/>
+          <Include href="icon_exit.xml" itemID="592c2e63-000001c6" lastModified="1496068043"/>
+          <Include href="icon_quest.xml" itemID="592c6f81-0000002c" lastModified="1496084435"/>
+          <Include href="icon_quest_in_progress.xml" itemID="592d8f23-0000002e" lastModified="1496158083"/>
           <Include href="List.xml" itemID="5922873f-000000e5" lastModified="1495999559"/>
           <Include href="listborder.xml" loadImmediate="false" itemID="592286e9-000000dd" lastModified="1495651364"/>
-          <Include href="ListEntry.xml" itemID="59229726-000001ab" lastModified="1495917034"/>
+          <Include href="ListEntry.xml" itemID="59229726-000001ab" lastModified="1496066924"/>
           <Include href="listmc_brackets.xml" itemID="5925deed-00000078" lastModified="1495656760"/>
           <Include href="Shapes/Shape 1.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000d4" lastModified="1495431068"/>
           <Include href="Shapes/Shape 3.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000d6" lastModified="1495431068"/>
@@ -54,7 +58,7 @@
                                                   <Point/>
                                              </transformationPoint>
                                         </DOMSymbolInstance>
-                                        <DOMSymbolInstance libraryItemName="List" name="List_mc" selected="true">
+                                        <DOMSymbolInstance libraryItemName="List" name="List_mc">
                                              <matrix>
                                                   <Matrix a="0.699996948242188" d="0.699996948242188" tx="290" ty="490"/>
                                              </matrix>
@@ -88,6 +92,19 @@
                                                   </DOMTextRun>
                                              </textRuns>
                                         </DOMDynamicText>
+                                        <DOMDynamicText name="quest_tf" selected="true" fontRenderingMode="device" top="7.95" width="709" height="31" isSelectable="false">
+                                             <matrix>
+                                                  <Matrix tx="285.95" ty="648"/>
+                                             </matrix>
+                                             <textRuns>
+                                                  <DOMTextRun>
+                                                       <characters></characters>
+                                                       <textAttrs>
+                                                            <DOMTextAttrs alignment="center" aliasText="false" useScreenSpacing="true" lineHeight="26.35" size="20" bitmapSize="400" face="$MAIN_Font*" fillColor="#FFFFFF"/>
+                                                       </textAttrs>
+                                                  </DOMTextRun>
+                                             </textRuns>
+                                        </DOMDynamicText>
                                    </elements>
                               </DOMFrame>
                          </frames>
@@ -97,25 +114,25 @@
      </timelines>
      <PrinterSettings/>
      <publishHistory>
-          <PublishItem publishSize="43808" publishTime="1496000291"/>
-          <PublishItem publishSize="10975" publishTime="1496000281"/>
-          <PublishItem publishSize="43776" publishTime="1496000084"/>
-          <PublishItem publishSize="43774" publishTime="1496000008"/>
-          <PublishItem publishSize="43771" publishTime="1495999906"/>
-          <PublishItem publishSize="43761" publishTime="1495999564"/>
-          <PublishItem publishSize="43761" publishTime="1495917716"/>
-          <PublishItem publishSize="43754" publishTime="1495917351"/>
-          <PublishItem publishSize="43741" publishTime="1495917194"/>
-          <PublishItem publishSize="43781" publishTime="1495917126"/>
-          <PublishItem publishSize="43757" publishTime="1495917042"/>
-          <PublishItem publishSize="43755" publishTime="1495916900"/>
-          <PublishItem publishSize="43699" publishTime="1495916826"/>
-          <PublishItem publishSize="43734" publishTime="1495916738"/>
-          <PublishItem publishSize="43679" publishTime="1495916581"/>
-          <PublishItem publishSize="43679" publishTime="1495916542"/>
-          <PublishItem publishSize="43784" publishTime="1495916104"/>
-          <PublishItem publishSize="43707" publishTime="1495915898"/>
-          <PublishItem publishSize="43620" publishTime="1495915569"/>
-          <PublishItem publishSize="43639" publishTime="1495915434"/>
+          <PublishItem publishSize="44950" publishTime="1496158151"/>
+          <PublishItem publishSize="44423" publishTime="1496067770"/>
+          <PublishItem publishSize="44403" publishTime="1496067572"/>
+          <PublishItem publishSize="44428" publishTime="1496067419"/>
+          <PublishItem publishSize="44422" publishTime="1496067328"/>
+          <PublishItem publishSize="44347" publishTime="1496067239"/>
+          <PublishItem publishSize="44278" publishTime="1496067008"/>
+          <PublishItem publishSize="44231" publishTime="1496066938"/>
+          <PublishItem publishSize="44246" publishTime="1496066818"/>
+          <PublishItem publishSize="44369" publishTime="1496066664"/>
+          <PublishItem publishSize="44357" publishTime="1496066551"/>
+          <PublishItem publishSize="44307" publishTime="1496066489"/>
+          <PublishItem publishSize="44322" publishTime="1496066445"/>
+          <PublishItem publishSize="44366" publishTime="1496066337"/>
+          <PublishItem publishSize="44364" publishTime="1496066205"/>
+          <PublishItem publishSize="43916" publishTime="1496065880"/>
+          <PublishItem publishSize="43872" publishTime="1496065602"/>
+          <PublishItem publishSize="43869" publishTime="1496065597"/>
+          <PublishItem publishSize="43848" publishTime="1496065256"/>
+          <PublishItem publishSize="43808" publishTime="1496065133"/>
      </publishHistory>
 </DOMDocument>

@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="ListEntry" itemID="59229726-000001ab" linkageExportForAS="true" linkageClassName="DialogueListEntry" lastModified="1495917034">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="ListEntry" itemID="59229726-000001ab" linkageExportForAS="true" linkageClassName="DialogueListEntry" lastModified="1496066924">
   <timeline>
     <DOMTimeline name="ListEntry">
       <layers>
@@ -6,7 +6,7 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="entryborder" name="border" selected="true">
+                <DOMSymbolInstance libraryItemName="entryborder" name="border">
                   <matrix>
                     <Matrix a="0.999984741210938" d="1.00071716308594"/>
                   </matrix>
@@ -17,7 +17,7 @@
                     <Color alphaMultiplier="0"/>
                   </color>
                 </DOMSymbolInstance>
-                <DOMDynamicText name="textField" fontRenderingMode="device" width="996" height="26.35" isSelectable="false">
+                <DOMDynamicText name="textField" fontRenderingMode="device" width="996" height="27.45" isSelectable="false">
                   <matrix>
                     <Matrix tx="3.5" ty="3.5"/>
                   </matrix>
@@ -25,7 +25,7 @@
                     <DOMTextRun>
                       <characters>dialogueentry</characters>
                       <textAttrs>
-                        <DOMTextAttrs aliasText="false" autoKern="false" useScreenSpacing="true" lineSpacing="5" lineHeight="26.35" size="20" bitmapSize="400" face="$MAIN_Font*" fillColor="#FFFFFF"/>
+                        <DOMTextAttrs aliasText="false" autoKern="false" useScreenSpacing="true" indent="36" lineSpacing="5" lineHeight="26.35" size="20" bitmapSize="400" face="$MAIN_Font*" fillColor="#FFFFFF"/>
                       </textAttrs>
                     </DOMTextRun>
                   </textRuns>

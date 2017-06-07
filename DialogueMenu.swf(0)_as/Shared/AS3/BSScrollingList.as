@@ -458,7 +458,7 @@
 				};
 				this.bInitialized = true;
 				dispatchEvent(new Event(LIST_ITEMS_CREATED, true, true));
-			switch (int(Shared.myf.confXML["scroll_amount"][0].toString())){
+			/*switch (int(Shared.myf.confXML["scroll_amount"][0].toString())){
 				case -2: 
 					this.m_scroll_amount = int(this.numListItems/2);
 					break;
@@ -467,7 +467,7 @@
 					break;
 				default:
 					this.m_scroll_amount = int(Shared.myf.confXML["scroll_amount"][0].toString());
-			}
+			}*/
 			};
 		}
 		protected function GetNewListEntry(auiClipIndex:uint):BSScrollingListEntry{

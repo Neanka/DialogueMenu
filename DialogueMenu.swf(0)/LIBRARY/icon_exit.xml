@@ -1,0 +1,39 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="icon_exit" itemID="592c2e63-000001c6" linkageExportForAS="true" linkageClassName="icon_exit" lastModified="1496068043">
+  <timeline>
+    <DOMTimeline name="icon_exit">
+      <layers>
+        <DOMLayer name="flash0.ai" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!375 520|375 58!375 58|182 103!182 103|182 474!182 474|375 520"/>
+                    <Edge fillStyle1="1" edges="!80 520|80 0!80 0|435 0!435 0|435 520!435 520|392 520!392 520|392 42!392 42|122 42!122 42|122 520!122 520|80 520"/>
+                    <Edge cubics="!375 520(375,520;375,520 375,58 375,58q375 520 375 58);"/>
+                    <Edge cubics="!375 58(;375,58 182,103 182,103q375 58 182 103);"/>
+                    <Edge cubics="!182 103(;182,103 182,474 182,474q182 103 182 474);"/>
+                    <Edge cubics="!182 474(182,474;182,474 375,520 375,520q182 474 375 520);"/>
+                    <Edge cubics="!435 520(;435,520 392,520 392,520q435 520 392 520);"/>
+                    <Edge cubics="!392 520(;392,520 392,42 392,42q392 520 392 42)392,42;"/>
+                    <Edge cubics="!392 42(;392,42 122,42 122,42q392 42 122 42);"/>
+                    <Edge cubics="!122 42(;122,42 122,520 122,520q122 42 122 520)122,520;"/>
+                    <Edge cubics="!122 520(;122,520 80,520 80,520q122 520 80 520);"/>
+                    <Edge cubics="!80 520(;80,520 80,0 80,0q80 520 80 0);"/>
+                    <Edge cubics="!80 0(;80,0 435,0 435,0q80 0 435 0);"/>
+                    <Edge cubics="!435 0(;435,0 435,520 435,520q435 0 435 520);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
