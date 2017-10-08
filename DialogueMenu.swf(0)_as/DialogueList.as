@@ -9,6 +9,7 @@
 		public function DialogueList() {
 			// constructor code
 		}
+
 	}
 	
 }

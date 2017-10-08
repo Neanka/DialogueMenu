@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="List" itemID="5922873f-000000e5" linkageExportForAS="true" linkageClassName="DialogueList" lastModified="1495999559">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="List" itemID="5922873f-000000e5" linkageExportForAS="true" linkageClassName="DialogueList" lastModified="1507136056">
   <timeline>
     <DOMTimeline name="List">
       <layers>
@@ -6,7 +6,7 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="listmc_brackets" name="brackets">
+                <DOMSymbolInstance libraryItemName="listmc_brackets" name="brackets" selected="true">
                   <matrix>
                     <Matrix a="1.45710754394531" d="1.14280700683594" tx="-10" ty="-9.95"/>
                   </matrix>

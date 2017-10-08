@@ -1,6 +1,6 @@
 <DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Sprites/Sprite 23" itemID="5922779c-000000c2" linkageExportForAS="true" linkageExportForRS="true" linkageIdentifier="DialogueMenu" linkageClassName="DialogueMenu" sourceFlashFilepath="Sprite 23" lastModified="1495436479" sourceItemID="00000000-ffffffff">
   <timeline>
-    <DOMTimeline name="Sprite 23" currentFrame="9">
+    <DOMTimeline name="Sprite 23">
       <layers>
         <DOMLayer name="Labels Layer" color="#4F80FF">
           <frames>
@@ -25,7 +25,7 @@
           <frames>
             <DOMFrame index="0" duration="2" tweenType="motion" keyMode="17921">
               <elements>
-                <DOMSymbolInstance libraryItemName="Sprites/Sprite 22" name="FadeHolder_mc">
+                <DOMSymbolInstance libraryItemName="Sprites/Sprite 22" name="FadeHolder_mc" selected="true">
                   <matrix>
                     <Matrix ty="-216"/>
                   </matrix>
@@ -89,9 +89,6 @@
                   <transformationPoint>
                     <Point/>
                   </transformationPoint>
-                  <color>
-                    <Color/>
-                  </color>
                 </DOMSymbolInstance>
               </elements>
             </DOMFrame>

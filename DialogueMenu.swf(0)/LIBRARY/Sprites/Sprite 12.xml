@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Sprites/Sprite 12" itemID="5922779c-000000c4" linkageExportForAS="true" linkageExportForRS="true" linkageIdentifier="DialogueMenu_fla.Button_FadeAnim_3" linkageClassName="DialogueMenu_fla.Button_FadeAnim_3" sourceFlashFilepath="Sprite 12" lastModified="1495438069" sourceItemID="00000000-ffffffff">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Sprites/Sprite 12" itemID="5922779c-000000c4" linkageExportForAS="true" linkageExportForRS="true" linkageIdentifier="DialogueMenu_fla.Button_FadeAnim_3" linkageClassName="DialogueMenu_fla.Button_FadeAnim_3" sourceFlashFilepath="Sprite 12" lastModified="1507131327" sourceItemID="00000000-ffffffff">
   <timeline>
     <DOMTimeline name="Sprite 12">
       <layers>
@@ -75,9 +75,6 @@
                   <transformationPoint>
                     <Point/>
                   </transformationPoint>
-                  <color>
-                    <Color/>
-                  </color>
                 </DOMSymbolInstance>
               </elements>
             </DOMFrame>
@@ -111,9 +108,6 @@
                   <transformationPoint>
                     <Point/>
                   </transformationPoint>
-                  <color>
-                    <Color/>
-                  </color>
                 </DOMSymbolInstance>
               </elements>
             </DOMFrame>

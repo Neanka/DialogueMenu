@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="ListEntry" itemID="59229726-000001ab" linkageExportForAS="true" linkageClassName="DialogueListEntry" lastModified="1496066924">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="ListEntry" itemID="59229726-000001ab" linkageExportForAS="true" linkageClassName="DialogueListEntry" lastModified="1507136196">
   <timeline>
     <DOMTimeline name="ListEntry">
       <layers>
@@ -17,15 +17,15 @@
                     <Color alphaMultiplier="0"/>
                   </color>
                 </DOMSymbolInstance>
-                <DOMDynamicText name="textField" fontRenderingMode="device" width="996" height="27.45" isSelectable="false">
+                <DOMDynamicText name="textField" selected="true" fontRenderingMode="device" width="996" height="36.95" isSelectable="false">
                   <matrix>
-                    <Matrix tx="3.5" ty="3.5"/>
+                    <Matrix tx="3.5" ty="-1.25"/>
                   </matrix>
                   <textRuns>
                     <DOMTextRun>
                       <characters>dialogueentry</characters>
                       <textAttrs>
-                        <DOMTextAttrs aliasText="false" autoKern="false" useScreenSpacing="true" indent="36" lineSpacing="5" lineHeight="26.35" size="20" bitmapSize="400" face="$MAIN_Font*" fillColor="#FFFFFF"/>
+                        <DOMTextAttrs aliasText="false" autoKern="false" useScreenSpacing="true" indent="36" lineSpacing="5" lineHeight="36.95" size="28" bitmapSize="560" face="$MAIN_Font*" fillColor="#FFFFFF"/>
                       </textAttrs>
                     </DOMTextRun>
                   </textRuns>

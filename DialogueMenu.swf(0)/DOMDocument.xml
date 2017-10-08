@@ -17,9 +17,10 @@
           <Include href="icon_exit.xml" itemID="592c2e63-000001c6" lastModified="1496068043"/>
           <Include href="icon_quest.xml" itemID="592c6f81-0000002c" lastModified="1496084435"/>
           <Include href="icon_quest_in_progress.xml" itemID="592d8f23-0000002e" lastModified="1496158083"/>
-          <Include href="List.xml" itemID="5922873f-000000e5" lastModified="1495999559"/>
+          <Include href="icon_speech.xml" itemID="59d91e9e-0000026d" lastModified="1507401470"/>
+          <Include href="List.xml" itemID="5922873f-000000e5" lastModified="1507136056"/>
           <Include href="listborder.xml" loadImmediate="false" itemID="592286e9-000000dd" lastModified="1495651364"/>
-          <Include href="ListEntry.xml" itemID="59229726-000001ab" lastModified="1496066924"/>
+          <Include href="ListEntry.xml" itemID="59229726-000001ab" lastModified="1507136196"/>
           <Include href="listmc_brackets.xml" itemID="5925deed-00000078" lastModified="1495656760"/>
           <Include href="Shapes/Shape 1.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000d4" lastModified="1495431068"/>
           <Include href="Shapes/Shape 3.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000d6" lastModified="1495431068"/>
@@ -37,10 +38,10 @@
           <Include href="Sprites/Sprite 9.xml" itemID="5922779c-000000c7" lastModified="1495431068"/>
           <Include href="Sprites/Sprite 10.xml" itemID="5922779c-000000c6" lastModified="1495434805"/>
           <Include href="Sprites/Sprite 11.xml" loadImmediate="false" itemID="5922779c-000000c5" lastModified="1495437593"/>
-          <Include href="Sprites/Sprite 12.xml" itemID="5922779c-000000c4" lastModified="1495438069"/>
+          <Include href="Sprites/Sprite 12.xml" itemID="5922779c-000000c4" lastModified="1507131327"/>
           <Include href="Sprites/Sprite 20.xml" itemID="5922779c-000000ca" lastModified="1495431068"/>
           <Include href="Sprites/Sprite 21.xml" itemID="5922779c-000000c9" lastModified="1495436745"/>
-          <Include href="Sprites/Sprite 22.xml" loadImmediate="false" itemID="5922779c-000000c3" lastModified="1495438008"/>
+          <Include href="Sprites/Sprite 22.xml" loadImmediate="false" itemID="5922779c-000000c3" lastModified="1507401345"/>
           <Include href="Sprites/Sprite 23.xml" itemID="5922779c-000000c2" lastModified="1495436479"/>
      </symbols>
      <timelines>
@@ -50,23 +51,7 @@
                          <frames>
                               <DOMFrame index="0" keyMode="8704">
                                    <elements>
-                                        <DOMSymbolInstance libraryItemName="Sprites/Sprite 23" name="Menu_mc">
-                                             <matrix>
-                                                  <Matrix tx="640" ty="684"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
-                                        <DOMSymbolInstance libraryItemName="List" name="List_mc">
-                                             <matrix>
-                                                  <Matrix a="0.699996948242188" d="0.699996948242188" tx="290" ty="490"/>
-                                             </matrix>
-                                             <transformationPoint>
-                                                  <Point x="250.05" y="150.05"/>
-                                             </transformationPoint>
-                                        </DOMSymbolInstance>
-                                        <DOMDynamicText name="dtf" fontRenderingMode="device" width="944.8" height="336.65" isSelectable="false">
+                                        <DOMDynamicText name="dtf" fontRenderingMode="device" width="944.8" height="622.65" isSelectable="false">
                                              <matrix>
                                                   <Matrix tx="47.5" ty="63.35"/>
                                              </matrix>
@@ -79,6 +64,22 @@
                                                   </DOMTextRun>
                                              </textRuns>
                                         </DOMDynamicText>
+                                        <DOMSymbolInstance libraryItemName="Sprites/Sprite 23" name="Menu_mc">
+                                             <matrix>
+                                                  <Matrix tx="640" ty="684"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                        <DOMSymbolInstance libraryItemName="List" name="List_mc" selected="true">
+                                             <matrix>
+                                                  <Matrix a="0.699996948242188" d="0.699996948242188" tx="290" ty="490"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="250.05" y="150.05"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
                                         <DOMDynamicText name="name_tf" fontRenderingMode="device" top="7.95" width="709" height="31" isSelectable="false">
                                              <matrix>
                                                   <Matrix tx="285" ty="442.05"/>
@@ -87,12 +88,12 @@
                                                   <DOMTextRun>
                                                        <characters></characters>
                                                        <textAttrs>
-                                                            <DOMTextAttrs alignment="center" aliasText="false" useScreenSpacing="true" lineHeight="26.35" size="20" bitmapSize="400" face="$MAIN_Font*" fillColor="#FFFFFF"/>
+                                                            <DOMTextAttrs alignment="center" aliasText="false" useScreenSpacing="true" lineHeight="26.35" size="20" bitmapSize="400" face="$MAIN_Font_Bold*" fillColor="#FFFFFF"/>
                                                        </textAttrs>
                                                   </DOMTextRun>
                                              </textRuns>
                                         </DOMDynamicText>
-                                        <DOMDynamicText name="quest_tf" selected="true" fontRenderingMode="device" top="7.95" width="709" height="31" isSelectable="false">
+                                        <DOMDynamicText name="quest_tf" fontRenderingMode="device" top="7.95" width="709" height="31" isSelectable="false">
                                              <matrix>
                                                   <Matrix tx="285.95" ty="648"/>
                                              </matrix>
@@ -114,25 +115,25 @@
      </timelines>
      <PrinterSettings/>
      <publishHistory>
-          <PublishItem publishSize="44950" publishTime="1496158151"/>
-          <PublishItem publishSize="44423" publishTime="1496067770"/>
-          <PublishItem publishSize="44403" publishTime="1496067572"/>
-          <PublishItem publishSize="44428" publishTime="1496067419"/>
-          <PublishItem publishSize="44422" publishTime="1496067328"/>
-          <PublishItem publishSize="44347" publishTime="1496067239"/>
-          <PublishItem publishSize="44278" publishTime="1496067008"/>
-          <PublishItem publishSize="44231" publishTime="1496066938"/>
-          <PublishItem publishSize="44246" publishTime="1496066818"/>
-          <PublishItem publishSize="44369" publishTime="1496066664"/>
-          <PublishItem publishSize="44357" publishTime="1496066551"/>
-          <PublishItem publishSize="44307" publishTime="1496066489"/>
-          <PublishItem publishSize="44322" publishTime="1496066445"/>
-          <PublishItem publishSize="44366" publishTime="1496066337"/>
-          <PublishItem publishSize="44364" publishTime="1496066205"/>
-          <PublishItem publishSize="43916" publishTime="1496065880"/>
-          <PublishItem publishSize="43872" publishTime="1496065602"/>
-          <PublishItem publishSize="43869" publishTime="1496065597"/>
-          <PublishItem publishSize="43848" publishTime="1496065256"/>
-          <PublishItem publishSize="43808" publishTime="1496065133"/>
+          <PublishItem publishSize="61108" publishTime="1507404174"/>
+          <PublishItem publishSize="61086" publishTime="1507404034"/>
+          <PublishItem publishSize="61109" publishTime="1507403982"/>
+          <PublishItem publishSize="61102" publishTime="1507403798"/>
+          <PublishItem publishSize="59467" publishTime="1507399736"/>
+          <PublishItem publishSize="59468" publishTime="1507399662"/>
+          <PublishItem publishSize="59509" publishTime="1507399631"/>
+          <PublishItem publishSize="59477" publishTime="1507399521"/>
+          <PublishItem publishSize="50591" publishTime="1507399213"/>
+          <PublishItem publishSize="50562" publishTime="1507399205"/>
+          <PublishItem publishSize="50574" publishTime="1507396153"/>
+          <PublishItem publishSize="50558" publishTime="1507395910"/>
+          <PublishItem publishSize="50515" publishTime="1507395804"/>
+          <PublishItem publishSize="50521" publishTime="1507395780"/>
+          <PublishItem publishSize="50488" publishTime="1507393941"/>
+          <PublishItem publishSize="50503" publishTime="1507393776"/>
+          <PublishItem publishSize="50534" publishTime="1507393635"/>
+          <PublishItem publishSize="50453" publishTime="1507140898"/>
+          <PublishItem publishSize="50470" publishTime="1507140667"/>
+          <PublishItem publishSize="50463" publishTime="1507140455"/>
      </publishHistory>
 </DOMDocument>

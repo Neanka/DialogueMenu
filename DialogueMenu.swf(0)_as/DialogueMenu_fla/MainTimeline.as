@@ -1,4 +1,5 @@
 ﻿package DialogueMenu_fla {
+	import com.greensock.TweenLite;
 	import flash.display.MovieClip;
 	import flash.events.*;
 	import debug.Log;
@@ -33,6 +34,8 @@
 			Log.info("constructor starting")
 			MainTimeline._instance = this;
 			this.addEventListener(F4SE_INITIALIZED, this.initialized);
+			this.List_mc.alpha = 0;
+			this.name_tf.alpha = 0;
 			this.List_mc.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown1);
 			this.List_mc.addEventListener(BSScrollingList.ITEM_PRESS, this.onItemPress);
 			this.List_mc.addEventListener(BSScrollingList.SELECTION_CHANGE, this.onSelectionChange);
@@ -42,6 +45,7 @@
 				addEventListener(Event.ADDED_TO_STAGE, this.init);
 			}
 			super();
+			//this.Menu_mc.addChildAt(this.List_mc, 1);
 			return;
 		}
 		public function onKeyDown1(event:KeyboardEvent){
@@ -129,7 +133,8 @@
 
 
 		public function filltestlist(ar: Array): * {
-			if (List_mc.entryList.length>0 && List_mc.entryList[0].text == ar[0].text){
+			if (List_mc.entryList.length > 0 && List_mc.entryList[0].text == ar[0].text && List_mc.entryList[1].text == ar[1].text && List_mc.entryList[2].text == ar[2].text && List_mc.entryList[3].text == ar[3].text)
+			{
 				return;
 			}
 			if (!_originalfilled && _datarecieved) {
@@ -169,21 +174,40 @@
 		}
 
 		private function onItemPress(_arg_1: Event) {
-		atrace("itemlist "+String(this.List_mc.selectedIndex)+" clicked")
-		root.f4se.SendExternalEvent("Dialogue::OptionReturned",scenename,this.List_mc.selectedIndex,int(this.List_mc.selectedEntry.val));//this.List_mc.selectedEntry.scene
-		if (this.List_mc.selectedIndex<4) {
-		atrace("running default function");
-			Menu_mc.onButtonRelease(this.List_mc.selectedIndex);
-		} //else {
+			atrace("itemlist "+String(this.List_mc.selectedIndex)+" clicked")
+		//root.f4se.SendExternalEvent("Dialogue::OptionReturned",scenename,this.List_mc.selectedIndex,int(this.List_mc.selectedEntry.val));//this.List_mc.selectedEntry.scene
+		//if (this.List_mc.selectedIndex<4) {
+		//atrace("running default function");
+		//	Menu_mc.onButtonRelease(this.List_mc.selectedIndex);
+		//} //else {
 		//atrace("there should be some callback papyrus function");
 		//root.f4se.SendExternalEvent("Dialogue::OptionReturned",scenename,this.List_mc.selectedIndex);//this.List_mc.selectedEntry.scene
 		//}
+			listToggle(false);
+			if (this.List_mc.selectedEntry["dlgf"]) 
+			{
+				Menu_mc.BGSCodeObj.SelectDialogueOption(this.List_mc.selectedEntry["optionID"]);
+			}
+			else 
+			{
+				Menu_mc.onButtonRelease(this.List_mc.selectedEntry["optionID"]);
+			}
 			
+		}
+		
+		public function listToggle(state: Boolean)
+		{
+			TweenLite.to(List_mc, 0.5, {alpha: (state?1:0)});
+			TweenLite.to(name_tf, 0.5, {alpha: (state?1:0)});
+			//this.name_tf.alpha = state?1:0;
+			//this.List_mc.alpha = state?1:0;
+			this.List_mc.disableInput = !state;
+			this.List_mc.disableSelection = !state;
 		}
 		
 		private function onSelectionChange(_arg_1: Event) {
 			atrace("itemlist "+String(this.List_mc.selectedIndex)+" selected")
-			atrace(String(this.List_mc.numListItems)+" : "+String(this.List_mc.itemsShown));
+			//atrace(String(this.List_mc.numListItems)+" : "+String(this.List_mc.itemsShown));
 		}
 
 		function setprops() {
@@ -195,7 +219,7 @@
 			this.List_mc.numListItems = 6;
 			this.List_mc.restoreListIndex = true;
 			this.List_mc.textOption = "None";
-			this.List_mc.verticalSpacing = 0;
+			this.List_mc.verticalSpacing = -4.25;
 			try {
 				this.List_mc["componentInspectorSetting"] = false;
 			} catch (e: Error) {};
