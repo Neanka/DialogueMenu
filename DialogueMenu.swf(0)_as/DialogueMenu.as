@@ -100,7 +100,7 @@ package
 		
 		public function SetButtonText(_arg_1:uint, _arg_2:String):*
 		{
-			this.ButtonData[_arg_1].ButtonText = _arg_2;
+			//this.ButtonData[_arg_1].ButtonText = _arg_2;
 			//MainTimeline.instance.atrace(String(this.visible)+" "+String(_arg_1));
 			if (myShared.menuStatus && _arg_1 == 3)
 				//if (_arg_1 == 3)
@@ -108,7 +108,7 @@ package
 				root.name_tf.text = this.BGSCodeObj.GetTargetName();
 				var dlgf:Boolean = this.BGSCodeObj.IsFrameworkActive();
 				var temparr:Array = this.BGSCodeObj.GetDialogueOptions();
-				MainTimeline.instance.atrace("<font color=\"#00FF00\">got options</font>");
+				//MainTimeline.instance.atrace("<font color=\"#00FF00\">got options</font>");
 				//traceObj(temparr);
 				this.visible = true;
 				myShared.menuStatus = false;
@@ -120,12 +120,13 @@ package
 				var iVal:int;
 				var iMinVal:int;
 				var iMaxVal:int;
+				var iStep:int;
 				var iTextColor:int;
 				var iBorderColor:int;
 				var iIconColor:int;
 				var iIcon:int;
 				var sCallbackID:String;
-				//{"Type":0,"Val":0,"MinVal":0,"MaxVal":0,"TextColor":80000000,"BorderColor":80000000,"Icon":80000000,"IconColor":80000000,"CallbackID":"none"}
+				//{"Type":0,"Val":0,"MinVal":0,"MaxVal":0,"Step":1,"TextColor":80000000,"BorderColor":80000000,"Icon":80000000,"IconColor":80000000,"CallbackID":"none"}
 				//
 				//
 				while (counter < temparr.length)
@@ -135,6 +136,7 @@ package
 					iVal = 0;
 					iMinVal = 0;
 					iMaxVal = 0;
+					iStep = 1;
 					iTextColor = 80000000;
 					iBorderColor = 80000000;
 					iIconColor = 80000000;
@@ -163,6 +165,10 @@ package
 								{
 									iMaxVal = int(dataObj.MaxVal)
 								}
+								if (dataObj.hasOwnProperty("Step"))
+								{
+									iStep = int(dataObj.Step)
+								}
 								if (dataObj.hasOwnProperty("TextColor"))
 								{
 									iTextColor = int(dataObj.TextColor)
@@ -189,7 +195,7 @@ package
 								trace("ERROR JSON PARSING")
 							}
 						}
-						temparray.push({"text": temparr[counter].response, "dlgf": dlgf, "optionID": temparr[counter].optionID, "challengeLevel": temparr[counter].challengeLevel, "challengeResult": temparr[counter].challengeResult, "linkedToSelf": temparr[counter].linkedToSelf, "said": temparr[counter].said, "endsScene": temparr[counter].endsScene, "type": iType, "val": iVal, "minval": iMinVal, "maxval": iMaxVal, "iTextColor": iTextColor, "iBorderColor": iBorderColor, "iIconColor": iIconColor, "icon": iIcon, "CallbackID": sCallbackID});
+						temparray.push({"text": temparr[counter].response, "dlgf": dlgf, "optionID": temparr[counter].optionID, "challengeLevel": temparr[counter].challengeLevel, "challengeResult": temparr[counter].challengeResult, "linkedToSelf": temparr[counter].linkedToSelf, "said": temparr[counter].said, "endsScene": temparr[counter].endsScene, "type": iType, "val": iVal, "minval": iMinVal, "maxval": iMaxVal, "step": iStep, "iTextColor": iTextColor, "iBorderColor": iBorderColor, "iIconColor": iIconColor, "icon": iIcon, "CallbackID": sCallbackID});
 					}
 					counter++;
 				}
@@ -258,7 +264,7 @@ package
 		public function EnableMenu():*
 		{
 			gotoAndPlay("showMenu");
-			MainTimeline.instance.atrace("<b>showMenu</b>");
+			//MainTimeline.instance.atrace("<b>showMenu</b>");
 			MainTimeline.instance.List_mc.visible = true;
 			MainTimeline.instance.name_tf.visible = true;
 		}
@@ -266,7 +272,7 @@ package
 		public function DisableMenu():*
 		{
 			gotoAndPlay("hideMenu");
-			MainTimeline.instance.atrace("<b>hideMenu</b>");
+			//MainTimeline.instance.atrace("<b>hideMenu</b>");
 			MainTimeline.instance.List_mc.visible = false;
 			MainTimeline.instance.name_tf.visible = false;
 		}
@@ -335,23 +341,25 @@ package
 					return false;
 				}
 			}
-			root.atrace(_arg_1 + " " + (_arg_2 ? "pressed" : "released"));
+			//root.atrace(_arg_1 + " " + (_arg_2 ? "pressed" : "released"));
 			switch (_arg_1)
 			{
-			case "Forward": 
+			//case "Forward": 
 			case "QuickkeyUp": 
 				MainTimeline.instance.List_mc.moveSelectionUp();
 				break;
-			case "Back": 
+			//case "Back": 
 			case "QuickkeyDown": 
 				MainTimeline.instance.List_mc.moveSelectionDown();
 				break;
-			case "StrafeLeft": 
+			//case "StrafeLeft": 
 			case "QuickkeyLeft": 
+			//case "MultiActivateX": 
 				MainTimeline.instance.listmcspindown();
 				break;
-			case "StrafeRight": 
+			//case "StrafeRight": 
 			case "QuickkeyRight": 
+			//case "MultiActivateB": 
 				MainTimeline.instance.listmcspinup();
 				break;
 			default: 
@@ -370,7 +378,7 @@ package
 		
 		private function onButtonRelease(_arg_1:uint):*
 		{
-			root.atrace("onButtonRelease " + String(_arg_1));
+			//root.atrace("onButtonRelease " + String(_arg_1));
 			if (_arg_1 < this.Buttons.length)
 			{
 				this.LastPressedButtonIndex = _arg_1;

@@ -41,6 +41,7 @@
 			this.addEventListener(F4SE_INITIALIZED, this.initialized);
 			this.List_mc.alpha = 0;
 			this.name_tf.alpha = 0;
+			this.List_mc.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown1);
 			this.List_mc.addEventListener(BSScrollingList.ITEM_PRESS, this.onItemPress);
 			this.List_mc.addEventListener(BSScrollingList.SELECTION_CHANGE, this.onSelectionChange);
 			if (stage)
@@ -56,13 +57,41 @@
 			return;
 		}
 		
+		public function onKeyDown1(event:KeyboardEvent){
+			//if (!this.bDisableInput){
+			switch (event.keyCode) {
+			case Keyboard.W:
+				this.List_mc.moveSelectionUp();
+				event.stopPropagation();
+				break;
+			case Keyboard.S:
+				this.List_mc.moveSelectionDown();
+				event.stopPropagation();
+				break;
+			case Keyboard.A:
+			case Keyboard.LEFT:
+				this.listmcspindown();
+				event.stopPropagation();
+				break;
+			case Keyboard.D:
+			case Keyboard.RIGHT:
+				this.listmcspinup();
+				event.stopPropagation();
+				break;
+			}
+			//};
+		}
+		
 		public function listmcspinup():*
 		{
+			//atrace("listmcspinup");
 			if (this.List_mc.selectedEntry.type == 1)
 			{
+				//atrace("checking passed");
 				if (this.List_mc.selectedEntry.val < this.List_mc.selectedEntry.maxval)
 				{
-					this.List_mc.selectedEntry.val += 1;
+					//atrace("val<maxval");
+					this.List_mc.selectedEntry.val += this.List_mc.selectedEntry.step;
 					this.List_mc.UpdateList()
 				}
 			}
@@ -74,7 +103,7 @@
 			{
 				if (this.List_mc.selectedEntry.val > this.List_mc.selectedEntry.minval)
 				{
-					this.List_mc.selectedEntry.val -= 1;
+					this.List_mc.selectedEntry.val -= this.List_mc.selectedEntry.step;
 					this.List_mc.UpdateList()
 				}
 			}
@@ -108,11 +137,15 @@
 		
 		public function onItemPress(_arg_1:Event)
 		{
-			atrace("itemlist with OptionID: " + String(this.List_mc.selectedEntry["optionID"]) + " pressed");
+			//atrace("itemlist with OptionID: " + String(this.List_mc.selectedEntry["optionID"]) + " pressed");
+			if (this.List_mc.selectedEntry.type == 1) 
+			{
+				Menu_mc.BGSCodeObj.SetXDIResult(Number(this.List_mc.selectedEntry.val));
+			}
 			if (this.List_mc.selectedEntry["CallbackID"] != "none")
 			{
 				root.f4se.SendExternalEvent("Dialogue::OptionReturned", String(this.List_mc.selectedEntry.CallbackID), int(this.List_mc.selectedEntry.val));
-				atrace("send event: Dialogue::OptionReturned, " + String(this.List_mc.selectedEntry.CallbackID) + ", " + String(this.List_mc.selectedEntry.val));
+				//atrace("send event: Dialogue::OptionReturned, " + String(this.List_mc.selectedEntry.CallbackID) + ", " + String(this.List_mc.selectedEntry.val));
 			}
 			listToggle(false);
 			if (this.List_mc.selectedEntry["dlgf"])
@@ -135,8 +168,8 @@
 			this.List_mc.disableInput = !state;
 			this.List_mc.disableSelection = !state;
 			Menu_mc.BGSCodeObj.SetSubtitlePosition(state ? newSubtitlesX : oldSubtitlesX, state ? newSubtitlesY : oldSubtitlesY);
-			atrace("subtitles moved");
-			atrace(String(Menu_mc.BGSCodeObj.GetSubtitlePosition()[0]) + " " + String(Menu_mc.BGSCodeObj.GetSubtitlePosition()[1]));
+			//atrace("subtitles moved");
+			//atrace(String(Menu_mc.BGSCodeObj.GetSubtitlePosition()[0]) + " " + String(Menu_mc.BGSCodeObj.GetSubtitlePosition()[1]));
 		
 		}
 		
@@ -160,7 +193,8 @@
 		
 		private function onSelectionChange(_arg_1:Event)
 		{
-			atrace("itemlist with OptionID: " + String(this.List_mc.selectedEntry["optionID"]) + " selected");
+			Menu_mc.BGSCodeObj.SetMovementEnabled(this.List_mc.selectedEntry.type != 1);
+			//atrace("itemlist with OptionID: " + String(this.List_mc.selectedEntry["optionID"]) + " selected");
 		}
 		
 		function setprops()
