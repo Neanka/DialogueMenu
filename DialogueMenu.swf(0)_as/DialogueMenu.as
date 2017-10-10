@@ -313,16 +313,31 @@ package
 		
 		public function ProcessUserEvent(_arg_1:String, _arg_2:Boolean):Boolean
 		{
-			if (!_arg_2) return false;
+			if (!_arg_2)
+			{
+				if (MainTimeline.instance.List_mc.alpha != 0) 
+				{
+					switch (_arg_1)
+					{
+					case "MultiActivateA": 
+						if (uiPlatform != 0) 
+						{
+							MainTimeline.instance.onItemPress(null);
+							return true;
+						}
+						break;
+					default:
+						return false;
+					}
+				}
+				else 
+				{
+					return false;
+				}
+			}
 			root.atrace(_arg_1 + " " + (_arg_2 ? "pressed" : "released"));
 			switch (_arg_1)
 			{
-			case "MultiActivateA": 
-				if (uiPlatform != 0) 
-				{
-					MainTimeline.instance.onItemPress(null);
-				}
-				break;
 			case "Forward": 
 			case "QuickkeyUp": 
 				MainTimeline.instance.List_mc.moveSelectionUp();
