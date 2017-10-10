@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="icon_exit" itemID="592c2e63-000001c6" linkageExportForAS="true" linkageClassName="icon_exit" lastModified="1496068043">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="icon_exit" itemID="592c2e63-000001c6" linkageExportForAS="true" linkageClassName="icon_exit" lastModified="1507467971">
   <timeline>
     <DOMTimeline name="icon_exit">
       <layers>
@@ -13,8 +13,8 @@
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle0="1" edges="!375 520|375 58!375 58|182 103!182 103|182 474!182 474|375 520"/>
-                    <Edge fillStyle1="1" edges="!80 520|80 0!80 0|435 0!435 0|435 520!435 520|392 520!392 520|392 42!392 42|122 42!122 42|122 520!122 520|80 520"/>
+                    <Edge fillStyle1="1" edges="!80 520S2|80 0!80 0|435 0!435 0|435 520!435 520|392 520!392 520|392 42!392 42|122 42!122 42|122 520!122 520|80 520"/>
+                    <Edge fillStyle0="1" edges="!375 520S1|375 58!375 58|182 103!182 103|182 474!182 474|375 520"/>
                     <Edge cubics="!375 520(375,520;375,520 375,58 375,58q375 520 375 58);"/>
                     <Edge cubics="!375 58(;375,58 182,103 182,103q375 58 182 103);"/>
                     <Edge cubics="!182 103(;182,103 182,474 182,474q182 103 182 474);"/>

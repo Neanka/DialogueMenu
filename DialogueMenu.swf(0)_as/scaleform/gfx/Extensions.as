@@ -1,104 +1,95 @@
-package scaleform.gfx 
+package scaleform.gfx
 {
-    import flash.display.*;
-    import flash.geom.*;
-    import flash.text.*;
-    
-    public final class Extensions extends Object
-    {
-        public function Extensions()
-        {
-            super();
-            return;
-        }
+    import flash.display.DisplayObject;
+    import flash.geom.Rectangle;
+    import flash.text.TextField;
 
-        public static function set enabled(arg1:Boolean):void
+    public final class Extensions 
+    {
+
+        public static const EDGEAA_INHERIT:uint = 0;
+        public static const EDGEAA_ON:uint = 1;
+        public static const EDGEAA_OFF:uint = 2;
+        public static const EDGEAA_DISABLE:uint = 3;
+
+        public static var isGFxPlayer:Boolean = false;
+        public static var CLIK_addedToStageCallback:Function;
+        public static var gfxProcessSound:Function;
+
+
+        public static function set enabled(value:Boolean):void
         {
-            return;
         }
 
         public static function get enabled():Boolean
         {
-            return false;
+            return (false);
         }
 
-        public static function set noInvisibleAdvance(arg1:Boolean):void
+        public static function set noInvisibleAdvance(value:Boolean):void
         {
-            return;
         }
 
         public static function get noInvisibleAdvance():Boolean
         {
-            return false;
+            return (false);
         }
 
-        public static function getTopMostEntity(arg1:Number, arg2:Number, arg3:Boolean=true):flash.display.DisplayObject
+        public static function getTopMostEntity(x:Number, y:Number, testAll:Boolean=true):DisplayObject
         {
-            return null;
+            return (null);
         }
 
-        public static function getMouseTopMostEntity(arg1:Boolean=true, arg2:uint=0):flash.display.DisplayObject
+        public static function getMouseTopMostEntity(testAll:Boolean=true, mouseIndex:uint=0):DisplayObject
         {
-            return null;
+            return (null);
         }
 
-        public static function setMouseCursorType(arg1:String, arg2:uint=0):void
+        public static function setMouseCursorType(cursor:String, mouseIndex:uint=0):void
         {
-            return;
         }
 
-        public static function getMouseCursorType(arg1:uint=0):String
+        public static function getMouseCursorType(mouseIndex:uint=0):String
         {
-            return "";
+            return ("");
         }
 
         public static function get numControllers():uint
         {
-            return 1;
+            return (1);
         }
 
-        public static function get visibleRect():flash.geom.Rectangle
+        public static function get visibleRect():Rectangle
         {
-            return new flash.geom.Rectangle(0, 0, 0, 0);
+            return (new Rectangle(0, 0, 0, 0));
         }
 
-        public static function getEdgeAAMode(arg1:flash.display.DisplayObject):uint
+        public static function getEdgeAAMode(dispObj:DisplayObject):uint
         {
-            return EDGEAA_INHERIT;
+            return (EDGEAA_INHERIT);
         }
 
-        public static function setEdgeAAMode(arg1:flash.display.DisplayObject, arg2:uint):void
+        public static function setEdgeAAMode(dispObj:DisplayObject, mode:uint):void
         {
-            return;
         }
 
-        public static function setIMEEnabled(arg1:flash.text.TextField, arg2:Boolean):void
+        public static function setIMEEnabled(textField:TextField, isEnabled:Boolean):void
         {
-            return;
         }
 
         public static function get isScaleform():Boolean
         {
-            return false;
+            return (false);
         }
-
-        
+		
+        public static function set disableBlockingBitmapDataAPI(value:Boolean):void
         {
-            isGFxPlayer = false;
         }
 
-        public static const EDGEAA_INHERIT:uint=0;
+        public static function get disableBlockingBitmapDataAPI():Boolean
+        {
+            return (false);
+        }
 
-        public static const EDGEAA_ON:uint=1;
-
-        public static const EDGEAA_OFF:uint=2;
-
-        public static const EDGEAA_DISABLE:uint=3;
-
-        public static var isGFxPlayer:Boolean=false;
-
-        public static var CLIK_addedToStageCallback:Function;
-
-        public static var gfxProcessSound:Function;
     }
-}
+}//package scaleform.gfx

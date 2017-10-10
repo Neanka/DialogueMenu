@@ -18,6 +18,7 @@ package
 	import flash.text.TextField;
 	import flash.utils.getQualifiedClassName;
 	import com.adobe.serialization.json.*;
+	import myShared;
 	
 	public class DialogueMenu extends IMenu
 	{
@@ -83,32 +84,34 @@ package
 				this.Buttons[_local_1].ButtonHintData = this.ButtonData[_local_1];
 				_local_1++;
 			}
-			;
+			if (!MainTimeline.instance.f4seinit) 
+			{
+				MainTimeline.instance.EM_mc.visible = true;
+				MainTimeline.instance.EM_mc.t_tf.text="F4SE Status: FAIL\n\nF4SE is not running. Make sure that F4SE is installed and that you have launched the game with f4se_loader.exe.";
+				this.visible = true;
+			}
+			else if (!this.BGSCodeObj.IsFrameworkActive)
+			{
+				MainTimeline.instance.EM_mc.visible = true;
+				MainTimeline.instance.EM_mc.t_tf.text="F4SE Status: OK\nXDI Status: FAIL\n\nXDI is not running. Make sure that XDI.dll is in your Data\\F4SE\\Plugins directory.";
+				this.visible = true;
+			}
 		}
 		
 		public function SetButtonText(_arg_1:uint, _arg_2:String):*
 		{
 			this.ButtonData[_arg_1].ButtonText = _arg_2;
-			//   if (((!(this.visible)) && (_arg_1 == 3)))
-			if (_arg_1 == 3)
+			//MainTimeline.instance.atrace(String(this.visible)+" "+String(_arg_1));
+			if (myShared.menuStatus && _arg_1 == 3)
+				//if (_arg_1 == 3)
 			{
 				root.name_tf.text = this.BGSCodeObj.GetTargetName();
-				//trace(this.FadeHolder_mc.getChildAt(0).transform.colorTransform);
-				//trace(this.FadeHolder_mc.getChildAt(1).transform.colorTransform);
-				//trace(this.FadeHolder_mc.getChildAt(2).transform.colorTransform);
-				//trace(this.FadeHolder_mc.getChildAt(3).transform.colorTransform);
-				//var defColors:Array = new Array();
-				//defColors.push(getColor(this.FadeHolder_mc.getChildAt(0).transform.colorTransform));
-				//defColors.push(getColor(this.FadeHolder_mc.getChildAt(3).transform.colorTransform));
-				//defColors.push(getColor(this.FadeHolder_mc.getChildAt(2).transform.colorTransform));
-				//defColors.push(getColor(this.FadeHolder_mc.getChildAt(1).transform.colorTransform));
-				mainColor = getColor(this.FadeHolder_mc.getChildAt(4).transform.colorTransform);
-				root.List_mc.brackets.transform.colorTransform = this.FadeHolder_mc.getChildAt(4).transform.colorTransform;
-				//root.List_mc.sa1.transform.colorTransform = this.FadeHolder_mc.getChildAt(4).transform.colorTransform;
 				var dlgf:Boolean = this.BGSCodeObj.IsFrameworkActive();
 				var temparr:Array = this.BGSCodeObj.GetDialogueOptions();
-				traceObj(temparr);
+				MainTimeline.instance.atrace("<font color=\"#00FF00\">got options</font>");
+				//traceObj(temparr);
 				this.visible = true;
+				myShared.menuStatus = false;
 				MainTimeline.instance.listToggle(true);
 				var counter:uint = 0;
 				var temparray:Array = new Array();
@@ -121,62 +124,64 @@ package
 				var iBorderColor:int;
 				var iIconColor:int;
 				var iIcon:int;
-				//{"aiType":0,"aiVal":0,"aiMinVal":0,"aiMaxVal":0,"aiTextColor":16777215,"aiBorderColor":16777215,"aiIcon":0}
+				var sCallbackID:String;
+				//{"Type":0,"Val":0,"MinVal":0,"MaxVal":0,"TextColor":80000000,"BorderColor":80000000,"Icon":80000000,"IconColor":80000000,"CallbackID":"none"}
 				//
-				//"iIconColor":16777215
+				//
 				while (counter < temparr.length)
 				{
+					//MainTimeline.instance.atrace("linkedToSelf "+ String(temparr[counter].linkedToSelf));
 					iType = 0;
 					iVal = 0;
 					iMinVal = 0;
 					iMaxVal = 0;
-					iTextColor = mainColor;
-					iBorderColor = mainColor;
-					iIconColor = mainColor;
-					iIcon = 0;
+					iTextColor = 80000000;
+					iBorderColor = 80000000;
+					iIconColor = 80000000;
+					iIcon = 80000000;
+					sCallbackID = "none";
 					if (temparr[counter].response != "" && temparr[counter].enabled)
 					{
-						//if (!dlgf && counter < defColors.length)
-						//{
-						//	iTextColor = defColors[counter];
-						//	iBorderColor = iTextColor;
-						//}
 						if (temparr[counter].prompt.charAt(0) == "{")
 						{
 							try
 							{
 								dataObj = com.adobe.serialization.json.JSON.decode(temparr[counter].prompt) as Object;
-								if (dataObj.hasOwnProperty("aiType"))
+								if (dataObj.hasOwnProperty("Type"))
 								{
-									iType = int(dataObj.aiType)
+									iType = int(dataObj.Type)
 								}
-								if (dataObj.hasOwnProperty("aiVal"))
+								if (dataObj.hasOwnProperty("Val"))
 								{
-									iVal = int(dataObj.aiVal)
+									iVal = int(dataObj.Val)
 								}
-								if (dataObj.hasOwnProperty("aiMinVal"))
+								if (dataObj.hasOwnProperty("MinVal"))
 								{
-									iMinVal = int(dataObj.aiMinVal)
+									iMinVal = int(dataObj.MinVal)
 								}
-								if (dataObj.hasOwnProperty("aiMaxVal"))
+								if (dataObj.hasOwnProperty("MaxVal"))
 								{
-									iMaxVal = int(dataObj.aiMaxVal)
+									iMaxVal = int(dataObj.MaxVal)
 								}
-								if (dataObj.hasOwnProperty("aiTextColor"))
+								if (dataObj.hasOwnProperty("TextColor"))
 								{
-									iTextColor = int(dataObj.aiTextColor)
+									iTextColor = int(dataObj.TextColor)
 								}
-								if (dataObj.hasOwnProperty("aiBorderColor"))
+								if (dataObj.hasOwnProperty("BorderColor"))
 								{
-									iBorderColor = int(dataObj.aiBorderColor)
+									iBorderColor = int(dataObj.BorderColor)
 								}
-								if (dataObj.hasOwnProperty("aiIconColor"))
+								if (dataObj.hasOwnProperty("IconColor"))
 								{
-									iIconColor = int(dataObj.aiIconColor)
+									iIconColor = int(dataObj.IconColor)
 								}
-								if (dataObj.hasOwnProperty("aiIcon"))
+								if (dataObj.hasOwnProperty("Icon"))
 								{
-									iIcon = int(dataObj.aiIcon)
+									iIcon = int(dataObj.Icon)
+								}
+								if (dataObj.hasOwnProperty("CallbackID"))
+								{
+									sCallbackID = String(dataObj.CallbackID)
 								}
 							}
 							catch (err:Error)
@@ -184,17 +189,16 @@ package
 								trace("ERROR JSON PARSING")
 							}
 						}
-						temparray.push({"text": temparr[counter].response, "dlgf": dlgf, "optionID": temparr[counter].optionID, "challengeLevel": temparr[counter].challengeLevel, "challengeResult": temparr[counter].challengeResult, "type": iType, "val": iVal, "minval": iMinVal, "maxval": iMaxVal, "qTextColor": iTextColor, "qBorderColor": iBorderColor, "qIconColor": iIconColor, "icon": iIcon});
+						temparray.push({"text": temparr[counter].response, "dlgf": dlgf, "optionID": temparr[counter].optionID, "challengeLevel": temparr[counter].challengeLevel, "challengeResult": temparr[counter].challengeResult, "linkedToSelf": temparr[counter].linkedToSelf, "said": temparr[counter].said, "endsScene": temparr[counter].endsScene, "type": iType, "val": iVal, "minval": iMinVal, "maxval": iMaxVal, "iTextColor": iTextColor, "iBorderColor": iBorderColor, "iIconColor": iIconColor, "icon": iIcon, "CallbackID": sCallbackID});
 					}
 					counter++;
 				}
 				root.filltestlist(temparray);
 			}
-		}
-		
-		private function getColor(tempMainCT:ColorTransform):int
-		{
-			return int(256 * 256 * 255 * tempMainCT.redMultiplier) + int(256 * 255 * tempMainCT.greenMultiplier) + int(255 * tempMainCT.blueMultiplier);
+			else if (!myShared.menuStatus && _arg_1 == 3)
+			{
+				myShared.menuStatus = true;
+			}
 		}
 		
 		private function traceObj(obj:Object):void
@@ -206,13 +210,13 @@ package
 				if (getQualifiedClassName(value) == "Object")
 				{
 					root.atrace("-->");
-					trace("-->");
+					//trace("-->");
 					traceObj(value);
 				}
 				else
 				{
 					root.atrace(String(id) + " = " + String(value));
-					trace(id + " = " + value);
+						//trace(id + " = " + value);
 				}
 			}
 		}
@@ -254,11 +258,17 @@ package
 		public function EnableMenu():*
 		{
 			gotoAndPlay("showMenu");
+			MainTimeline.instance.atrace("<b>showMenu</b>");
+			MainTimeline.instance.List_mc.visible = true;
+			MainTimeline.instance.name_tf.visible = true;
 		}
 		
 		public function DisableMenu():*
 		{
 			gotoAndPlay("hideMenu");
+			MainTimeline.instance.atrace("<b>hideMenu</b>");
+			MainTimeline.instance.List_mc.visible = false;
+			MainTimeline.instance.name_tf.visible = false;
 		}
 		
 		private function onPositivePress():*
@@ -303,81 +313,35 @@ package
 		
 		public function ProcessUserEvent(_arg_1:String, _arg_2:Boolean):Boolean
 		{
-			
+			if (!_arg_2) return false;
 			root.atrace(_arg_1 + " " + (_arg_2 ? "pressed" : "released"));
-			return;
-			var _local_3:Boolean;
-			if (this._ButtonsShown)
+			switch (_arg_1)
 			{
-				_local_3 = true;
-				if (_arg_1 == "MultiActivateA")
+			case "MultiActivateA": 
+				if (uiPlatform != 0) 
 				{
-					if (_arg_2)
-					{
-						this.onPositivePress();
-					}
-					else
-					{
-						this.onPositiveRelease();
-					}
-					;
+					MainTimeline.instance.onItemPress(null);
 				}
-				else
-				{
-					if (_arg_1 == "MultiActivateB")
-					{
-						if (_arg_2)
-						{
-							this.onNegativePress();
-						}
-						else
-						{
-							this.onNegativeRelease();
-						}
-						;
-					}
-					else
-					{
-						if (_arg_1 == "MultiActivateX")
-						{
-							if (_arg_2)
-							{
-								this.onNeutralPress();
-							}
-							else
-							{
-								this.onNeutralRelease();
-							}
-							;
-						}
-						else
-						{
-							if (_arg_1 == "MultiActivateY")
-							{
-								if (_arg_2)
-								{
-									this.onQuestionPress();
-								}
-								else
-								{
-									this.onQuestionRelease();
-								}
-								;
-							}
-							else
-							{
-								_local_3 = false;
-							}
-							;
-						}
-						;
-					}
-					;
-				}
-				;
+				break;
+			case "Forward": 
+			case "QuickkeyUp": 
+				MainTimeline.instance.List_mc.moveSelectionUp();
+				break;
+			case "Back": 
+			case "QuickkeyDown": 
+				MainTimeline.instance.List_mc.moveSelectionDown();
+				break;
+			case "StrafeLeft": 
+			case "QuickkeyLeft": 
+				MainTimeline.instance.listmcspindown();
+				break;
+			case "StrafeRight": 
+			case "QuickkeyRight": 
+				MainTimeline.instance.listmcspinup();
+				break;
+			default: 
 			}
-			;
-			return (_local_3);
+			return true;
 		}
 		
 		private function onButtonPress(_arg_1:uint):*

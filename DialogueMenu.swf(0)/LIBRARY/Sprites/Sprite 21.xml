@@ -1,6 +1,6 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Sprites/Sprite 21" itemID="5922779c-000000c9" linkageExportForAS="true" linkageExportForRS="true" linkageIdentifier="DialogueMenu_fla.SpeechChallenge_Anim_8" linkageClassName="DialogueMenu_fla.SpeechChallenge_Anim_8" sourceFlashFilepath="Sprite 21" lastModified="1495436745" sourceItemID="00000000-ffffffff">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Sprites/Sprite 21" itemID="5922779c-000000c9" linkageExportForAS="true" linkageExportForRS="true" linkageIdentifier="DialogueMenu_fla.SpeechChallenge_Anim_8" linkageClassName="DialogueMenu_fla.SpeechChallenge_Anim_8" sourceFlashFilepath="Sprite 21" lastModified="1507470471" sourceItemID="00000000-ffffffff">
   <timeline>
-    <DOMTimeline name="Sprite 21">
+    <DOMTimeline name="Sprite 21" currentFrame="69">
       <layers>
         <DOMLayer name="Labels Layer" color="#4F80FF">
           <frames>
@@ -22,7 +22,7 @@
           <frames>
             <DOMFrame index="0" duration="7" keyMode="8704">
               <elements>
-                <DOMSymbolInstance libraryItemName="Sprites/Sprite 20" name="BaseClip_mc" selected="true">
+                <DOMSymbolInstance libraryItemName="Sprites/Sprite 20" name="BaseClip_mc">
                   <matrix>
                     <Matrix a="0.299819946289063" d="0.299819946289063"/>
                   </matrix>
@@ -119,9 +119,6 @@
                   <transformationPoint>
                     <Point/>
                   </transformationPoint>
-                  <color>
-                    <Color/>
-                  </color>
                 </DOMSymbolInstance>
               </elements>
             </DOMFrame>

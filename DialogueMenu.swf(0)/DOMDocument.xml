@@ -11,16 +11,20 @@
      <symbols>
           <Include href="bracketsbg.xml" loadImmediate="false" itemID="5925df9e-0000007e" lastModified="1495656698"/>
           <Include href="entryborder.xml" loadImmediate="false" itemID="592296e7-000001a5" lastModified="1495439107"/>
+          <Include href="error message.xml" itemID="59db9327-00000033" lastModified="1507567301"/>
           <Include href="gentryborder.xml" itemIcon="1" loadImmediate="false" itemID="592296de-000001a3" lastModified="1495651614"/>
           <Include href="glistborder.xml" itemIcon="1" loadImmediate="false" itemID="592286f5-000000e0" lastModified="1495435046"/>
+          <Include href="icon_back.xml" itemID="59db198a-00000034" lastModified="1507531414"/>
           <Include href="icon_barter.xml" itemID="592c25b5-00000030" lastModified="1496067696"/>
-          <Include href="icon_exit.xml" itemID="592c2e63-000001c6" lastModified="1496068043"/>
+          <Include href="icon_exit.xml" itemID="592c2e63-000001c6" lastModified="1507467971"/>
+          <Include href="icon_loop.xml" itemID="59da2229-00000030" lastModified="1507467980"/>
           <Include href="icon_quest.xml" itemID="592c6f81-0000002c" lastModified="1496084435"/>
           <Include href="icon_quest_in_progress.xml" itemID="592d8f23-0000002e" lastModified="1496158083"/>
+          <Include href="icon_question_bubble.xml" itemID="59da257c-00000032" lastModified="1507468709"/>
           <Include href="icon_speech.xml" itemID="59d91e9e-0000026d" lastModified="1507401470"/>
-          <Include href="List.xml" itemID="5922873f-000000e5" lastModified="1507136056"/>
+          <Include href="List.xml" itemID="5922873f-000000e5" lastModified="1507442240"/>
           <Include href="listborder.xml" loadImmediate="false" itemID="592286e9-000000dd" lastModified="1495651364"/>
-          <Include href="ListEntry.xml" itemID="59229726-000001ab" lastModified="1507136196"/>
+          <Include href="ListEntry.xml" itemID="59229726-000001ab" lastModified="1507555881"/>
           <Include href="listmc_brackets.xml" itemID="5925deed-00000078" lastModified="1495656760"/>
           <Include href="Shapes/Shape 1.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000d4" lastModified="1495431068"/>
           <Include href="Shapes/Shape 3.xml" itemIcon="1" loadImmediate="false" itemID="5922779c-000000d6" lastModified="1495431068"/>
@@ -40,9 +44,9 @@
           <Include href="Sprites/Sprite 11.xml" loadImmediate="false" itemID="5922779c-000000c5" lastModified="1495437593"/>
           <Include href="Sprites/Sprite 12.xml" itemID="5922779c-000000c4" lastModified="1507131327"/>
           <Include href="Sprites/Sprite 20.xml" itemID="5922779c-000000ca" lastModified="1495431068"/>
-          <Include href="Sprites/Sprite 21.xml" itemID="5922779c-000000c9" lastModified="1495436745"/>
-          <Include href="Sprites/Sprite 22.xml" loadImmediate="false" itemID="5922779c-000000c3" lastModified="1507401345"/>
-          <Include href="Sprites/Sprite 23.xml" itemID="5922779c-000000c2" lastModified="1495436479"/>
+          <Include href="Sprites/Sprite 21.xml" itemID="5922779c-000000c9" lastModified="1507470471"/>
+          <Include href="Sprites/Sprite 22.xml" loadImmediate="false" itemID="5922779c-000000c3" lastModified="1507470431"/>
+          <Include href="Sprites/Sprite 23.xml" itemID="5922779c-000000c2" lastModified="1507566966"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Page 1">
@@ -51,7 +55,15 @@
                          <frames>
                               <DOMFrame index="0" keyMode="8704">
                                    <elements>
-                                        <DOMDynamicText name="dtf" fontRenderingMode="device" width="944.8" height="622.65" isSelectable="false">
+                                        <DOMSymbolInstance libraryItemName="error message" name="EM_mc">
+                                             <matrix>
+                                                  <Matrix tx="421.5" ty="242"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point x="210.5" y="102.5"/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                        <DOMDynamicText name="dtf" fontRenderingMode="device" width="944.8" height="622.65" isSelectable="false" renderAsHTML="true" lineType="multiline">
                                              <matrix>
                                                   <Matrix tx="47.5" ty="63.35"/>
                                              </matrix>
@@ -59,12 +71,12 @@
                                                   <DOMTextRun>
                                                        <characters></characters>
                                                        <textAttrs>
-                                                            <DOMTextAttrs aliasText="false" autoKern="false" useScreenSpacing="true" lineSpacing="5" lineHeight="26.35" size="20" bitmapSize="400" face="$MAIN_Font*" fillColor="#FFFFFF"/>
+                                                            <DOMTextAttrs aliasText="false" autoKern="false" useScreenSpacing="true" lineSpacing="5" lineHeight="21.1" size="16" bitmapSize="320" face="$MAIN_Font*" fillColor="#FFFFFF"/>
                                                        </textAttrs>
                                                   </DOMTextRun>
                                              </textRuns>
                                         </DOMDynamicText>
-                                        <DOMSymbolInstance libraryItemName="Sprites/Sprite 23" name="Menu_mc">
+                                        <DOMSymbolInstance libraryItemName="Sprites/Sprite 23" name="Menu_mc" selected="true">
                                              <matrix>
                                                   <Matrix tx="640" ty="684"/>
                                              </matrix>
@@ -72,7 +84,7 @@
                                                   <Point/>
                                              </transformationPoint>
                                         </DOMSymbolInstance>
-                                        <DOMSymbolInstance libraryItemName="List" name="List_mc" selected="true">
+                                        <DOMSymbolInstance libraryItemName="List" name="List_mc">
                                              <matrix>
                                                   <Matrix a="0.699996948242188" d="0.699996948242188" tx="290" ty="490"/>
                                              </matrix>
@@ -115,25 +127,25 @@
      </timelines>
      <PrinterSettings/>
      <publishHistory>
-          <PublishItem publishSize="61108" publishTime="1507404174"/>
-          <PublishItem publishSize="61086" publishTime="1507404034"/>
-          <PublishItem publishSize="61109" publishTime="1507403982"/>
-          <PublishItem publishSize="61102" publishTime="1507403798"/>
-          <PublishItem publishSize="59467" publishTime="1507399736"/>
-          <PublishItem publishSize="59468" publishTime="1507399662"/>
-          <PublishItem publishSize="59509" publishTime="1507399631"/>
-          <PublishItem publishSize="59477" publishTime="1507399521"/>
-          <PublishItem publishSize="50591" publishTime="1507399213"/>
-          <PublishItem publishSize="50562" publishTime="1507399205"/>
-          <PublishItem publishSize="50574" publishTime="1507396153"/>
-          <PublishItem publishSize="50558" publishTime="1507395910"/>
-          <PublishItem publishSize="50515" publishTime="1507395804"/>
-          <PublishItem publishSize="50521" publishTime="1507395780"/>
-          <PublishItem publishSize="50488" publishTime="1507393941"/>
-          <PublishItem publishSize="50503" publishTime="1507393776"/>
-          <PublishItem publishSize="50534" publishTime="1507393635"/>
-          <PublishItem publishSize="50453" publishTime="1507140898"/>
-          <PublishItem publishSize="50470" publishTime="1507140667"/>
-          <PublishItem publishSize="50463" publishTime="1507140455"/>
+          <PublishItem publishSize="80429" publishTime="1507622803"/>
+          <PublishItem publishSize="80402" publishTime="1507621795"/>
+          <PublishItem publishSize="80481" publishTime="1507621661"/>
+          <PublishItem publishSize="80491" publishTime="1507569216"/>
+          <PublishItem publishSize="80478" publishTime="1507567515"/>
+          <PublishItem publishSize="80507" publishTime="1507567467"/>
+          <PublishItem publishSize="80443" publishTime="1507567370"/>
+          <PublishItem publishSize="80433" publishTime="1507567321"/>
+          <PublishItem publishSize="80443" publishTime="1507566977"/>
+          <PublishItem publishSize="80413" publishTime="1507566887"/>
+          <PublishItem publishSize="80388" publishTime="1507566767"/>
+          <PublishItem publishSize="80279" publishTime="1507564741"/>
+          <PublishItem publishSize="80343" publishTime="1507564566"/>
+          <PublishItem publishSize="80300" publishTime="1507564483"/>
+          <PublishItem publishSize="80310" publishTime="1507564462"/>
+          <PublishItem publishSize="80309" publishTime="1507564353"/>
+          <PublishItem publishSize="80257" publishTime="1507564335"/>
+          <PublishItem publishSize="80265" publishTime="1507564310"/>
+          <PublishItem publishSize="80283" publishTime="1507564286"/>
+          <PublishItem publishSize="80197" publishTime="1507562590"/>
      </publishHistory>
 </DOMDocument>

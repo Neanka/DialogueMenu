@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="ListEntry" itemID="59229726-000001ab" linkageExportForAS="true" linkageClassName="DialogueListEntry" lastModified="1507136196">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="ListEntry" itemID="59229726-000001ab" linkageExportForAS="true" linkageClassName="DialogueListEntry" lastModified="1507555881">
   <timeline>
     <DOMTimeline name="ListEntry">
       <layers>
@@ -6,9 +6,9 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="entryborder" name="border">
+                <DOMSymbolInstance libraryItemName="entryborder" name="border" selected="true">
                   <matrix>
-                    <Matrix a="0.999984741210938" d="1.00071716308594"/>
+                    <Matrix a="0.999984741210938" d="1.00071716308594" ty="-2"/>
                   </matrix>
                   <transformationPoint>
                     <Point x="50" y="50"/>
@@ -17,15 +17,15 @@
                     <Color alphaMultiplier="0"/>
                   </color>
                 </DOMSymbolInstance>
-                <DOMDynamicText name="textField" selected="true" fontRenderingMode="device" width="996" height="36.95" isSelectable="false">
+                <DOMDynamicText name="textField" fontRenderingMode="device" width="960.05" height="36.95" isSelectable="false">
                   <matrix>
-                    <Matrix tx="3.5" ty="-1.25"/>
+                    <Matrix tx="39.5" ty="-1.25"/>
                   </matrix>
                   <textRuns>
                     <DOMTextRun>
                       <characters>dialogueentry</characters>
                       <textAttrs>
-                        <DOMTextAttrs aliasText="false" autoKern="false" useScreenSpacing="true" indent="36" lineSpacing="5" lineHeight="36.95" size="28" bitmapSize="560" face="$MAIN_Font*" fillColor="#FFFFFF"/>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" useScreenSpacing="true" lineSpacing="5" lineHeight="36.95" size="28" bitmapSize="560" face="$MAIN_Font*" fillColor="#FFFFFF"/>
                       </textAttrs>
                     </DOMTextRun>
                   </textRuns>
