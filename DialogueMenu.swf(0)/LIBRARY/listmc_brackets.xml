@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="listmc_brackets" itemID="5925deed-00000078" linkageExportForAS="true" linkageClassName="listmc_brackets" lastModified="1495656760">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="listmc_brackets" itemID="5925deed-00000078" linkageExportForAS="true" linkageClassName="listmc_brackets" lastModified="1507926157">
   <timeline>
     <DOMTimeline name="listmc_brackets">
       <layers>
@@ -6,7 +6,7 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="bracketsbg" selected="true">
+                <DOMSymbolInstance libraryItemName="bracketsbg" name="bBg" selected="true">
                   <matrix>
                     <Matrix a="7" d="2.10000610351563"/>
                   </matrix>

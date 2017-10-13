@@ -86,14 +86,12 @@ package
 			}
 			if (!MainTimeline.instance.f4seinit) 
 			{
-				MainTimeline.instance.EM_mc.visible = true;
-				MainTimeline.instance.EM_mc.t_tf.text="F4SE Status: FAIL\n\nF4SE is not running. Make sure that F4SE is installed and that you have launched the game with f4se_loader.exe.";
+				MainTimeline.instance.EM_mc.open(0);
 				this.visible = true;
 			}
-			else if (!this.BGSCodeObj.IsFrameworkActive)
+			else if (!MainTimeline.instance.xdiinit)
 			{
-				MainTimeline.instance.EM_mc.visible = true;
-				MainTimeline.instance.EM_mc.t_tf.text="F4SE Status: OK\nXDI Status: FAIL\n\nXDI is not running. Make sure that XDI.dll is in your Data\\F4SE\\Plugins directory.";
+				MainTimeline.instance.EM_mc.open(1);
 				this.visible = true;
 			}
 		}
@@ -101,17 +99,22 @@ package
 		public function SetButtonText(_arg_1:uint, _arg_2:String):*
 		{
 			//this.ButtonData[_arg_1].ButtonText = _arg_2;
-			//MainTimeline.instance.atrace(String(this.visible)+" "+String(_arg_1));
-			if (myShared.menuStatus && _arg_1 == 3)
+			MainTimeline.instance.atrace("got option");
+			var formType:int = this.BGSCodeObj.GetTargetType();
+			MainTimeline.instance.atrace("dialogue target formType: "+String(formType));
+			if (formType == 64) {
+				myShared.firstButtonUpdateDone = true;
+			}
+			if (myShared.firstButtonUpdateDone && _arg_1 == 3)
 				//if (_arg_1 == 3)
 			{
-				root.name_tf.text = this.BGSCodeObj.GetTargetName();
-				var dlgf:Boolean = this.BGSCodeObj.IsFrameworkActive();
-				var temparr:Array = this.BGSCodeObj.GetDialogueOptions();
-				//MainTimeline.instance.atrace("<font color=\"#00FF00\">got options</font>");
-				//traceObj(temparr);
 				this.visible = true;
-				myShared.menuStatus = false;
+				root.name_tf.text = this.BGSCodeObj.GetTargetName();
+				myShared.isFrameworkActive = this.BGSCodeObj.IsFrameworkActive();
+				var temparr:Array = this.BGSCodeObj.GetDialogueOptions();
+				MainTimeline.instance.atrace("got options");
+				//traceObj(temparr);
+				myShared.firstButtonUpdateDone = false;
 				MainTimeline.instance.listToggle(true);
 				var counter:uint = 0;
 				var temparray:Array = new Array();
@@ -131,7 +134,6 @@ package
 				//
 				while (counter < temparr.length)
 				{
-					//MainTimeline.instance.atrace("linkedToSelf "+ String(temparr[counter].linkedToSelf));
 					iType = 0;
 					iVal = 0;
 					iMinVal = 0;
@@ -195,16 +197,21 @@ package
 								trace("ERROR JSON PARSING")
 							}
 						}
-						temparray.push({"text": temparr[counter].response, "dlgf": dlgf, "optionID": temparr[counter].optionID, "challengeLevel": temparr[counter].challengeLevel, "challengeResult": temparr[counter].challengeResult, "linkedToSelf": temparr[counter].linkedToSelf, "said": temparr[counter].said, "endsScene": temparr[counter].endsScene, "type": iType, "val": iVal, "minval": iMinVal, "maxval": iMaxVal, "step": iStep, "iTextColor": iTextColor, "iBorderColor": iBorderColor, "iIconColor": iIconColor, "icon": iIcon, "CallbackID": sCallbackID});
+						temparray.push({"text": temparr[counter].response, "num": counter, "optionID": temparr[counter].optionID, "challengeLevel": temparr[counter].challengeLevel, "challengeResult": temparr[counter].challengeResult, "linkedToSelf": temparr[counter].linkedToSelf, "said": temparr[counter].said, "endsScene": temparr[counter].endsScene, "type": iType, "val": iVal, "minval": iMinVal, "maxval": iMaxVal, "step": iStep, "iTextColor": iTextColor, "iBorderColor": iBorderColor, "iIconColor": iIconColor, "icon": iIcon, "CallbackID": sCallbackID});
 					}
 					counter++;
 				}
 				root.filltestlist(temparray);
 			}
-			else if (!myShared.menuStatus && _arg_1 == 3)
+			else if (!myShared.firstButtonUpdateDone && _arg_1 == 3)
 			{
-				myShared.menuStatus = true;
+				myShared.firstButtonUpdateDone = true;
 			}
+		}
+		
+		private function populateArray():Array 
+		{
+			
 		}
 		
 		private function traceObj(obj:Object):void
@@ -264,7 +271,7 @@ package
 		public function EnableMenu():*
 		{
 			gotoAndPlay("showMenu");
-			//MainTimeline.instance.atrace("<b>showMenu</b>");
+			//MainTimeline.instance.atrace("showMenu");
 			MainTimeline.instance.List_mc.visible = true;
 			MainTimeline.instance.name_tf.visible = true;
 		}
@@ -272,7 +279,7 @@ package
 		public function DisableMenu():*
 		{
 			gotoAndPlay("hideMenu");
-			//MainTimeline.instance.atrace("<b>hideMenu</b>");
+			//MainTimeline.instance.atrace("hideMenu");
 			MainTimeline.instance.List_mc.visible = false;
 			MainTimeline.instance.name_tf.visible = false;
 		}

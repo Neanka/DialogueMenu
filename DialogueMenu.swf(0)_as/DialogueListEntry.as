@@ -46,6 +46,10 @@
 			{
 				this.textField.textColor = myShared.getColor(myShared.ct_UI_color);
 			}
+			if (myShared.showNumbers) 
+			{
+				GlobalFunc.SetText(this.textField,String(_arg_1.num+1)+". "+_arg_1.text,true);
+			}
 			//set border color
 			var borderCT:ColorTransform;
 			if (_arg_1.iBorderColor < 80000000)
@@ -69,7 +73,7 @@
 			{
 				icon_placeholder.removeChildAt(0);
 			}
-			if (_arg_1.icon != 0) 
+			if (_arg_1.icon != 0 && myShared.showIcons) 
 			{
 				if (_arg_1.icon != 80000000) 
 				{

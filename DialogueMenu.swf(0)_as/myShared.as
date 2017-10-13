@@ -15,8 +15,12 @@ package
 		public static var fittext: Boolean = true;
 		public static var dimming: Boolean = true;
 		public static var showQuestionIcon: Boolean = false;
+		public static var showNumbers: Boolean = false;
+		public static var enableNumbersHotkeys: Boolean = false;
+		public static var showIcons: Boolean = true;
 		
-		public static var menuStatus: Boolean = false;
+		public static var firstButtonUpdateDone: Boolean = false;
+		public static var isFrameworkActive: Boolean = false;
 		
 		public function myShared()
 		{

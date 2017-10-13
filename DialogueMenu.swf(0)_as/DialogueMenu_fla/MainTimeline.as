@@ -29,7 +29,8 @@
 		public static const F4SE_INITIALIZED:String = "F4SE::Initialized";
 		private static var _instance:MainTimeline;
 		
-		public var f4seinit:Boolean = false;
+		public var f4seinit:Boolean = false
+		public var xdiinit:Boolean = false;
 		
 		public var Menu_mc:DialogueMenu;
 		public var EM_mc:errormessage;
@@ -58,28 +59,34 @@
 		}
 		
 		public function onKeyDown1(event:KeyboardEvent){
-			//if (!this.bDisableInput){
-			switch (event.keyCode) {
-			case Keyboard.W:
-				this.List_mc.moveSelectionUp();
-				event.stopPropagation();
-				break;
-			case Keyboard.S:
-				this.List_mc.moveSelectionDown();
-				event.stopPropagation();
-				break;
-			case Keyboard.A:
-			case Keyboard.LEFT:
-				this.listmcspindown();
-				event.stopPropagation();
-				break;
-			case Keyboard.D:
-			case Keyboard.RIGHT:
-				this.listmcspinup();
-				event.stopPropagation();
-				break;
-			}
-			//};
+			if (!this.List_mc.disableInput){
+				switch (event.keyCode) {
+				case Keyboard.W:
+					this.List_mc.moveSelectionUp();
+					event.stopPropagation();
+					return;
+				case Keyboard.S:
+					this.List_mc.moveSelectionDown();
+					event.stopPropagation();
+					return;
+				case Keyboard.A:
+				case Keyboard.LEFT:
+					this.listmcspindown();
+					event.stopPropagation();
+					return;
+				case Keyboard.D:
+				case Keyboard.RIGHT:
+					this.listmcspinup();
+					event.stopPropagation();
+					return;
+				}
+				if (event.keyCode>=Keyboard.NUMBER_1 && event.keyCode <= Keyboard.NUMBER_9 && myShared.enableNumbersHotkeys) 
+				{
+					var num: int = event.keyCode - Keyboard.NUMBER_1;
+					atrace("button: " + String(num+1) + " pressed");
+					itemPressed(num);
+				}
+			};
 		}
 		
 		public function listmcspinup():*
@@ -118,7 +125,7 @@
 			}
 			else
 			{
-				this.List_mc.brackets.height = this.List_mc.shownItemsHeight + 26.7;
+				this.List_mc.brackets.height = this.List_mc.shownItemsHeight + 26.7; // TODO probably should be tuned
 					//this.List_mc.brackets.height = 21+this.List_mc.entryList.length*36;
 			}
 			
@@ -137,24 +144,29 @@
 		
 		public function onItemPress(_arg_1:Event)
 		{
-			//atrace("itemlist with OptionID: " + String(this.List_mc.selectedEntry["optionID"]) + " pressed");
-			if (this.List_mc.selectedEntry.type == 1) 
+			itemPressed(this.List_mc.selectedIndex);
+		}
+		
+		public function itemPressed(id: int):void 
+		{
+			//atrace("itemlist with OptionID: " + String(this.List_mc.entryList[id]["optionID"]) + " pressed");
+			if (this.List_mc.entryList[id].type == 1) 
 			{
-				Menu_mc.BGSCodeObj.SetXDIResult(Number(this.List_mc.selectedEntry.val));
+				Menu_mc.BGSCodeObj.SetXDIResult(Number(this.List_mc.entryList[id].val));
 			}
-			if (this.List_mc.selectedEntry["CallbackID"] != "none")
+			if (this.List_mc.entryList[id]["CallbackID"] != "none")
 			{
-				root.f4se.SendExternalEvent("Dialogue::OptionReturned", String(this.List_mc.selectedEntry.CallbackID), int(this.List_mc.selectedEntry.val));
-				//atrace("send event: Dialogue::OptionReturned, " + String(this.List_mc.selectedEntry.CallbackID) + ", " + String(this.List_mc.selectedEntry.val));
+				root.f4se.SendExternalEvent("Dialogue::OptionReturned", String(this.List_mc.entryList[id].CallbackID), int(this.List_mc.entryList[id].val));
+				//atrace("send event: Dialogue::OptionReturned, " + String(this.List_mc.entryList[id].CallbackID) + ", " + String(this.List_mc.entryList[id].val));
 			}
 			listToggle(false);
-			if (this.List_mc.selectedEntry["dlgf"])
+			if (myShared.isFrameworkActive)
 			{
-				Menu_mc.BGSCodeObj.SelectDialogueOption(this.List_mc.selectedEntry["optionID"]);
+				Menu_mc.BGSCodeObj.SelectDialogueOption(this.List_mc.entryList[id]["optionID"]);
 			}
 			else
 			{
-				Menu_mc.onButtonRelease(this.List_mc.selectedEntry["optionID"]);
+				Menu_mc.onButtonRelease(this.List_mc.entryList[id]["optionID"]);
 			}
 		}
 
@@ -230,8 +242,7 @@
 				return
 			}
 			;
-			//dtf.appendText(param1 + "\n");
-			dtf.htmlText = dtf.htmlText + param1 + "\n";
+			dtf.appendText(param1 + "\n");
 			trace(param1);
 			dtf.scrollV = dtf.maxScrollV;
 		}
@@ -245,6 +256,11 @@
 		public static function get instance():MainTimeline
 		{
 			return _instance;
+		}
+		
+		public function XDI_Init():*
+		{
+			xdiinit = true;
 		}
 		
 		private function initialized(e:Event):void
@@ -262,6 +278,11 @@
 			myShared.fittext = !Boolean(Menu_mc.BGSCodeObj.GetModSetting("bWrapText:DialogueMenu"));
 			myShared.dimming = Boolean(Menu_mc.BGSCodeObj.GetModSetting("bDimSpokenOptions:DialogueMenu"));
 			myShared.showQuestionIcon = Boolean(Menu_mc.BGSCodeObj.GetModSetting("bShowQuestionIcon:DialogueMenu"));
+			myShared.showNumbers = Boolean(Menu_mc.BGSCodeObj.GetModSetting("bShowOptionNumbers:DialogueMenu"));
+			myShared.enableNumbersHotkeys = Boolean(Menu_mc.BGSCodeObj.GetModSetting("bEnableOptionHotkeys:DialogueMenu"));
+			this.List_mc.brackets.bShowBrackets = Boolean(Menu_mc.BGSCodeObj.GetModSetting("bShowBrackets:DialogueMenu"))
+			this.List_mc.brackets.getChildAt(0).visible = Boolean(Menu_mc.BGSCodeObj.GetModSetting("bShowShadedBackground:DialogueMenu"))
+			myShared.showIcons = Boolean(Menu_mc.BGSCodeObj.GetModSetting("bShowIcons:DialogueMenu"));
 			//ct_green: ColorTransform;
 			myShared.ct_yellow = new ColorTransform(0.9411765336990356, 1, 0.2235294282436371);
 			myShared.ct_orange = new ColorTransform(0.9411765336990356, 0.6431372761726379, 0.08627451211214066);
