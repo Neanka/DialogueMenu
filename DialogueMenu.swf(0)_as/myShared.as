@@ -20,6 +20,8 @@ package
 		public static var showIcons: Boolean = true;
 		
 		public static var firstButtonUpdateDone: Boolean = false;
+
+		public static var secondButtonUpdateDone: Boolean = false;
 		public static var isFrameworkActive: Boolean = false;
 		
 		public function myShared()

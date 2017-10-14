@@ -17,11 +17,12 @@
 		private static const DLG_ICON_BARTER:int = 1;
 		private static const DLG_ICON_EXIT:int = 2;
 		private static const DLG_ICON_QUEST:int = 3;
-		private static const DLG_ICON_QUEST_IN_PROGRESS:int = 4;		
+		private static const DLG_ICON_QUEST_IN_PROGRESS:int = 4;
 		private static const DLG_ICON_SPEECH:int = 5;
 		private static const DLG_ICON_LOOP:int = 6;
 		private static const DLG_ICON_QUESTION_BUBBLE:int = 7;
 		private static const DLG_ICON_BACK:int = 8;
+		private static const DLG_ICON_INV:int = 9;
 		
 		public var icon_placeholder:MovieClip;
 		
@@ -37,6 +38,11 @@
 		override public function SetEntryText(_arg_1:Object, _arg_2:String)
 		{
 			super.SetEntryText(_arg_1, _arg_2);
+			//set options numbers
+			if (myShared.showNumbers)
+			{
+				GlobalFunc.SetText(this.textField, String(_arg_1.num + 1) + ". " + _arg_1.text, true);
+			}
 			//set text color
 			if (_arg_1.iTextColor < 80000000)
 			{
@@ -45,10 +51,6 @@
 			else
 			{
 				this.textField.textColor = myShared.getColor(myShared.ct_UI_color);
-			}
-			if (myShared.showNumbers) 
-			{
-				GlobalFunc.SetText(this.textField,String(_arg_1.num+1)+". "+_arg_1.text,true);
 			}
 			//set border color
 			var borderCT:ColorTransform;
@@ -73,55 +75,77 @@
 			{
 				icon_placeholder.removeChildAt(0);
 			}
-			if (_arg_1.icon != 0 && myShared.showIcons) 
+			if (_arg_1.icon != 0)
 			{
-				if (_arg_1.icon != 80000000) 
+				if (myShared.showIcons)
 				{
-					switch (_arg_1.icon)
+					if (_arg_1.icon != 80000000)
 					{
-					case DLG_ICON_BARTER: 
-						icon = new icon_barter();
-						break;
-					case DLG_ICON_EXIT: 
-						icon = new icon_exit();
-						break;
-					case DLG_ICON_QUEST: 
-						icon = new icon_quest();
-						break;
-					case DLG_ICON_QUEST_IN_PROGRESS: 
-						icon = new icon_quest_in_progress();
-						break;
-					case DLG_ICON_SPEECH: 
-						icon = new icon_speech();
-						break;
-					case DLG_ICON_LOOP: 
-						icon = new icon_loop();
-						break;
-					case DLG_ICON_QUESTION_BUBBLE: 
-						icon = new icon_question_bubble();
-						break;
-					case DLG_ICON_BACK: 
-						icon = new icon_back();
-						break;
+						switch (_arg_1.icon)
+						{
+						case DLG_ICON_BARTER: 
+							icon = new icon_barter();
+							break;
+						case DLG_ICON_EXIT: 
+							icon = new icon_exit();
+							break;
+						case DLG_ICON_QUEST: 
+							icon = new icon_quest();
+							break;
+						case DLG_ICON_QUEST_IN_PROGRESS: 
+							icon = new icon_quest_in_progress();
+							break;
+						case DLG_ICON_SPEECH: 
+							icon = new icon_speech();
+							break;
+						case DLG_ICON_LOOP: 
+							icon = new icon_loop();
+							break;
+						case DLG_ICON_QUESTION_BUBBLE: 
+							icon = new icon_question_bubble();
+							break;
+						case DLG_ICON_BACK: 
+							icon = new icon_back();
+							break;
+						case DLG_ICON_INV: 
+							icon = new icon_inv();
+							break;
+						}
 					}
-				}
-				else if (_arg_1.challengeLevel > 0 && _arg_1.challengeResult == -1)
-				{
-					icon = new icon_speech();
-				}
-				else if (_arg_1.endsScene)
-				{
-					icon = new icon_exit();
-				}
-				else if (_arg_1.linkedToSelf && myShared.showQuestionIcon)
-				{
-					icon = new icon_question_bubble();
+					else if (_arg_1.challengeLevel > 0 && _arg_1.challengeResult == -1)
+					{
+						icon = new icon_speech();
+					}
+					else if (_arg_1.isBarterOption)
+					{
+						icon = new icon_barter();
+					}
+					else if (_arg_1.isInventoryOption)
+					{
+						icon = new icon_inv();
+					}
+					else if (_arg_1.endsScene)
+					{
+						icon = new icon_exit();
+					}
+					else if (_arg_1.linkedToSelf && myShared.showQuestionIcon)
+					{
+						icon = new icon_question_bubble();
+					}
+					else
+					{
+						
+					}
 				}
 				else
 				{
-
+					if (_arg_1.challengeLevel > 0 && _arg_1.challengeResult == -1)
+					{
+						icon = new icon_speech();
+					}
 				}
 			}
+
 			
 			//set icon color
 			if (icon)
@@ -171,11 +195,11 @@
 				textField.height = textField.textHeight + 4;
 				border.height = textField.height;
 			}
-			if (myShared.dimming) 
+			if (myShared.dimming)
 			{
-				this.textField.alpha = _arg_1.said?0.6:1;
-				icon_placeholder.alpha = _arg_1.said?0.6:1;
-			}		
+				this.textField.alpha = _arg_1.said ? 0.6 : 1;
+				icon_placeholder.alpha = _arg_1.said ? 0.6 : 1;
+			}
 		}
 	}
 } //package

@@ -42,7 +42,7 @@
 			this.addEventListener(F4SE_INITIALIZED, this.initialized);
 			this.List_mc.alpha = 0;
 			this.name_tf.alpha = 0;
-			this.List_mc.addEventListener(KeyboardEvent.KEY_DOWN, this.onKeyDown1);
+			this.List_mc.addEventListener(KeyboardEvent.KEY_UP, this.onKeyUp1);
 			this.List_mc.addEventListener(BSScrollingList.ITEM_PRESS, this.onItemPress);
 			this.List_mc.addEventListener(BSScrollingList.SELECTION_CHANGE, this.onSelectionChange);
 			if (stage)
@@ -58,7 +58,7 @@
 			return;
 		}
 		
-		public function onKeyDown1(event:KeyboardEvent){
+		public function onKeyUp1(event:KeyboardEvent){
 			if (!this.List_mc.disableInput){
 				switch (event.keyCode) {
 				case Keyboard.W:

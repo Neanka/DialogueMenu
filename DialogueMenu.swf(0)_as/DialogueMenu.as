@@ -7,6 +7,7 @@ package
 {
 	import DialogueMenu_fla.MainTimeline;
 	import Shared.IMenu;
+	import com.greensock.TweenMax;
 	import flash.display.MovieClip;
 	import __AS3__.vec.Vector;
 	import Shared.AS3.BSButtonHint;
@@ -36,6 +37,9 @@ package
 		private var LastPressedButtonIndex:uint;
 		private var _ButtonsShown:Boolean;
 		private var mainColor:int = 16777215;
+		public var optionsArray:Array;
+		public var optionsArray2:Array;
+		public var origArray:Array = [];
 		
 		public function DialogueMenu()
 		{
@@ -84,7 +88,7 @@ package
 				this.Buttons[_local_1].ButtonHintData = this.ButtonData[_local_1];
 				_local_1++;
 			}
-			if (!MainTimeline.instance.f4seinit) 
+			if (!MainTimeline.instance.f4seinit)
 			{
 				MainTimeline.instance.EM_mc.open(0);
 				this.visible = true;
@@ -98,120 +102,160 @@ package
 		
 		public function SetButtonText(_arg_1:uint, _arg_2:String):*
 		{
-			//this.ButtonData[_arg_1].ButtonText = _arg_2;
-			MainTimeline.instance.atrace("got option");
-			var formType:int = this.BGSCodeObj.GetTargetType();
-			MainTimeline.instance.atrace("dialogue target formType: "+String(formType));
-			if (formType == 64) {
-				myShared.firstButtonUpdateDone = true;
-			}
-			if (myShared.firstButtonUpdateDone && _arg_1 == 3)
-				//if (_arg_1 == 3)
+			this.origArray[_arg_1] = _arg_2;
+			if (!myShared.firstButtonUpdateDone && _arg_1 == 0) 
 			{
-				this.visible = true;
-				root.name_tf.text = this.BGSCodeObj.GetTargetName();
-				myShared.isFrameworkActive = this.BGSCodeObj.IsFrameworkActive();
-				var temparr:Array = this.BGSCodeObj.GetDialogueOptions();
-				MainTimeline.instance.atrace("got options");
-				//traceObj(temparr);
-				myShared.firstButtonUpdateDone = false;
-				MainTimeline.instance.listToggle(true);
-				var counter:uint = 0;
-				var temparray:Array = new Array();
-				var dataObj:Object = new Object();
-				var iType:int;
-				var iVal:int;
-				var iMinVal:int;
-				var iMaxVal:int;
-				var iStep:int;
-				var iTextColor:int;
-				var iBorderColor:int;
-				var iIconColor:int;
-				var iIcon:int;
-				var sCallbackID:String;
-				//{"Type":0,"Val":0,"MinVal":0,"MaxVal":0,"Step":1,"TextColor":80000000,"BorderColor":80000000,"Icon":80000000,"IconColor":80000000,"CallbackID":"none"}
-				//
-				//
-				while (counter < temparr.length)
-				{
-					iType = 0;
-					iVal = 0;
-					iMinVal = 0;
-					iMaxVal = 0;
-					iStep = 1;
-					iTextColor = 80000000;
-					iBorderColor = 80000000;
-					iIconColor = 80000000;
-					iIcon = 80000000;
-					sCallbackID = "none";
-					if (temparr[counter].response != "" && temparr[counter].enabled)
-					{
-						if (temparr[counter].prompt.charAt(0) == "{")
-						{
-							try
-							{
-								dataObj = com.adobe.serialization.json.JSON.decode(temparr[counter].prompt) as Object;
-								if (dataObj.hasOwnProperty("Type"))
-								{
-									iType = int(dataObj.Type)
-								}
-								if (dataObj.hasOwnProperty("Val"))
-								{
-									iVal = int(dataObj.Val)
-								}
-								if (dataObj.hasOwnProperty("MinVal"))
-								{
-									iMinVal = int(dataObj.MinVal)
-								}
-								if (dataObj.hasOwnProperty("MaxVal"))
-								{
-									iMaxVal = int(dataObj.MaxVal)
-								}
-								if (dataObj.hasOwnProperty("Step"))
-								{
-									iStep = int(dataObj.Step)
-								}
-								if (dataObj.hasOwnProperty("TextColor"))
-								{
-									iTextColor = int(dataObj.TextColor)
-								}
-								if (dataObj.hasOwnProperty("BorderColor"))
-								{
-									iBorderColor = int(dataObj.BorderColor)
-								}
-								if (dataObj.hasOwnProperty("IconColor"))
-								{
-									iIconColor = int(dataObj.IconColor)
-								}
-								if (dataObj.hasOwnProperty("Icon"))
-								{
-									iIcon = int(dataObj.Icon)
-								}
-								if (dataObj.hasOwnProperty("CallbackID"))
-								{
-									sCallbackID = String(dataObj.CallbackID)
-								}
-							}
-							catch (err:Error)
-							{
-								trace("ERROR JSON PARSING")
-							}
-						}
-						temparray.push({"text": temparr[counter].response, "num": counter, "optionID": temparr[counter].optionID, "challengeLevel": temparr[counter].challengeLevel, "challengeResult": temparr[counter].challengeResult, "linkedToSelf": temparr[counter].linkedToSelf, "said": temparr[counter].said, "endsScene": temparr[counter].endsScene, "type": iType, "val": iVal, "minval": iMinVal, "maxval": iMaxVal, "step": iStep, "iTextColor": iTextColor, "iBorderColor": iBorderColor, "iIconColor": iIconColor, "icon": iIcon, "CallbackID": sCallbackID});
-					}
-					counter++;
-				}
-				root.filltestlist(temparray);
+				//checkFormType();
+				myShared.secondButtonUpdateDone = false;
 			}
-			else if (!myShared.firstButtonUpdateDone && _arg_1 == 3)
+			else if(!myShared.firstButtonUpdateDone && _arg_1 == 3)
+			{
+				optionsArray = populateArray();
+				myShared.firstButtonUpdateDone = true;
+				atrace("1st update done...");
+				TweenMax.delayedCall(30, checkSecondUpdate,null,true);
+			}
+			else if (myShared.firstButtonUpdateDone && _arg_1 == 3)
+			{
+				optionsArray2 = populateArray();
+				atrace("2nd update done...");
+				populateList(optionsArray2);
+			}
+		}
+		
+		private function checkSecondUpdate():void 
+		{
+			atrace("timer: checking 2nd update...");
+			if (myShared.secondButtonUpdateDone) 
+			{
+				atrace("2nd update done, aborting timer action")
+			}
+			else 
+			{
+				atrace("2nd update still false. fill list with data from 1st update")
+				populateList(optionsArray);
+			}
+		}
+		
+		private function populateList(options:Array):void 
+		{
+			myShared.secondButtonUpdateDone = true;
+			myShared.firstButtonUpdateDone = false;
+			this.visible = true;
+			MainTimeline.instance.listToggle(true);
+			if (options.length != 0) 
+			{
+				root.filltestlist(options);
+			}
+			else 
+			{
+				root.filltestlist(origArray);
+			}
+			
+		}
+		
+		private function checkFormType():void 
+		{
+			var formType:int = this.BGSCodeObj.GetTargetType();
+			atrace("dialogue target formType: " + String(formType));
+			if (formType == 64)
 			{
 				myShared.firstButtonUpdateDone = true;
 			}
 		}
 		
-		private function populateArray():Array 
+		private function populateArray():Array
 		{
-			
+			root.name_tf.text = this.BGSCodeObj.GetTargetName();
+			myShared.isFrameworkActive = this.BGSCodeObj.IsFrameworkActive();
+			var temparr:Array = this.BGSCodeObj.GetDialogueOptions();
+			//traceObj(temparr);
+			var counter:uint = 0;
+			var temparray:Array = new Array();
+			var dataObj:Object = new Object();
+			var iType:int;
+			var iVal:int;
+			var iMinVal:int;
+			var iMaxVal:int;
+			var iStep:int;
+			var iTextColor:int;
+			var iBorderColor:int;
+			var iIconColor:int;
+			var iIcon:int;
+			var sCallbackID:String;
+			//{"Type":0,"Val":0,"MinVal":0,"MaxVal":0,"Step":1,"TextColor":80000000,"BorderColor":80000000,"Icon":80000000,"IconColor":80000000,"CallbackID":"none"}
+			//
+			//
+			while (counter < temparr.length)
+			{
+				iType = 0;
+				iVal = 0;
+				iMinVal = 0;
+				iMaxVal = 0;
+				iStep = 1;
+				iTextColor = 80000000;
+				iBorderColor = 80000000;
+				iIconColor = 80000000;
+				iIcon = 80000000;
+				sCallbackID = "none";
+				if (temparr[counter].response != "" && temparr[counter].enabled)
+				{
+					if (temparr[counter].prompt.charAt(0) == "{")
+					{
+						try
+						{
+							dataObj = com.adobe.serialization.json.JSON.decode(temparr[counter].prompt) as Object;
+							if (dataObj.hasOwnProperty("Type"))
+							{
+								iType = int(dataObj.Type)
+							}
+							if (dataObj.hasOwnProperty("Val"))
+							{
+								iVal = int(dataObj.Val)
+							}
+							if (dataObj.hasOwnProperty("MinVal"))
+							{
+								iMinVal = int(dataObj.MinVal)
+							}
+							if (dataObj.hasOwnProperty("MaxVal"))
+							{
+								iMaxVal = int(dataObj.MaxVal)
+							}
+							if (dataObj.hasOwnProperty("Step"))
+							{
+								iStep = int(dataObj.Step)
+							}
+							if (dataObj.hasOwnProperty("TextColor"))
+							{
+								iTextColor = int(dataObj.TextColor)
+							}
+							if (dataObj.hasOwnProperty("BorderColor"))
+							{
+								iBorderColor = int(dataObj.BorderColor)
+							}
+							if (dataObj.hasOwnProperty("IconColor"))
+							{
+								iIconColor = int(dataObj.IconColor)
+							}
+							if (dataObj.hasOwnProperty("Icon"))
+							{
+								iIcon = int(dataObj.Icon)
+							}
+							if (dataObj.hasOwnProperty("CallbackID"))
+							{
+								sCallbackID = String(dataObj.CallbackID)
+							}
+						}
+						catch (err:Error)
+						{
+							trace("ERROR JSON PARSING")
+						}
+					}
+					temparray.push({"text": temparr[counter].response, "num": counter, "optionID": temparr[counter].optionID, "challengeLevel": temparr[counter].challengeLevel, "challengeResult": temparr[counter].challengeResult, "linkedToSelf": temparr[counter].linkedToSelf, "said": temparr[counter].said, "isBarterOption": temparr[counter].isBarterOption, "isInventoryOption": temparr[counter].isInventoryOption, "endsScene": temparr[counter].endsScene, "type": iType, "val": iVal, "minval": iMinVal, "maxval": iMaxVal, "step": iStep, "iTextColor": iTextColor, "iBorderColor": iBorderColor, "iIconColor": iIconColor, "icon": iIcon, "CallbackID": sCallbackID});
+				}
+				counter++;
+			}
+			return temparray;
 		}
 		
 		private function traceObj(obj:Object):void
@@ -328,22 +372,22 @@ package
 		{
 			if (!_arg_2)
 			{
-				if (MainTimeline.instance.List_mc.alpha != 0) 
+				if (MainTimeline.instance.List_mc.alpha != 0)
 				{
 					switch (_arg_1)
 					{
 					case "MultiActivateA": 
-						if (uiPlatform != 0) 
+						if (uiPlatform != 0)
 						{
 							MainTimeline.instance.onItemPress(null);
 							return true;
 						}
 						break;
-					default:
+					default: 
 						return false;
 					}
 				}
-				else 
+				else
 				{
 					return false;
 				}
@@ -361,17 +405,22 @@ package
 				break;
 			//case "StrafeLeft": 
 			case "QuickkeyLeft": 
-			//case "MultiActivateX": 
+				//case "MultiActivateX": 
 				MainTimeline.instance.listmcspindown();
 				break;
 			//case "StrafeRight": 
 			case "QuickkeyRight": 
-			//case "MultiActivateB": 
+				//case "MultiActivateB": 
 				MainTimeline.instance.listmcspinup();
 				break;
 			default: 
 			}
 			return true;
+		}
+		
+		private function atrace(astr:String):void
+		{
+			MainTimeline.instance.atrace(astr);
 		}
 		
 		private function onButtonPress(_arg_1:uint):*
