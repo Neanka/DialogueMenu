@@ -223,7 +223,7 @@
 			this.List_mc.listEntryClass = "DialogueListEntry";
 			this.List_mc.numListItems = 6;
 			this.List_mc.restoreListIndex = true;
-			this.List_mc.textOption = "None";
+			this.List_mc.textOption = "Multi-Line";
 			this.List_mc.verticalSpacing = -4.25;
 			try
 			{

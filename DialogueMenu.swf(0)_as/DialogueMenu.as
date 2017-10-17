@@ -88,6 +88,11 @@ package
 				this.Buttons[_local_1].ButtonHintData = this.ButtonData[_local_1];
 				_local_1++;
 			}
+			TweenMax.delayedCall(1, CheckPlugins);
+		}
+		
+		public function CheckPlugins():*
+		{
 			if (!MainTimeline.instance.f4seinit)
 			{
 				MainTimeline.instance.EM_mc.open(0);
@@ -105,7 +110,9 @@ package
 			this.origArray[_arg_1] = _arg_2;
 			if (!myShared.firstButtonUpdateDone && _arg_1 == 0) 
 			{
-				//checkFormType();
+				optionsArray = [];
+				optionsArray2 = [];
+				checkFormType();
 				myShared.secondButtonUpdateDone = false;
 			}
 			else if(!myShared.firstButtonUpdateDone && _arg_1 == 3)
@@ -113,12 +120,14 @@ package
 				optionsArray = populateArray();
 				myShared.firstButtonUpdateDone = true;
 				atrace("1st update done...");
-				TweenMax.delayedCall(30, checkSecondUpdate,null,true);
+				TweenMax.delayedCall(40, checkSecondUpdate,null,true);
 			}
 			else if (myShared.firstButtonUpdateDone && _arg_1 == 3)
 			{
 				optionsArray2 = populateArray();
 				atrace("2nd update done...");
+				myShared.secondButtonUpdateDone = true;
+				myShared.firstButtonUpdateDone = false;
 				populateList(optionsArray2);
 			}
 		}
@@ -133,21 +142,26 @@ package
 			else 
 			{
 				atrace("2nd update still false. fill list with data from 1st update")
-				populateList(optionsArray);
+				optionsArray2 = populateArray();
+				myShared.secondButtonUpdateDone = true;
+				myShared.firstButtonUpdateDone = false;
+				populateList();
 			}
 		}
 		
-		private function populateList(options:Array):void 
+		private function populateList():void 
 		{
-			myShared.secondButtonUpdateDone = true;
-			myShared.firstButtonUpdateDone = false;
 			this.visible = true;
 			MainTimeline.instance.listToggle(true);
-			if (options.length != 0) 
+			if (optionsArray2.length != 0) 
 			{
-				root.filltestlist(options);
+				root.filltestlist(optionsArray2);
 			}
-			else 
+			else if (optionsArray.length != 0) 
+			{
+				root.filltestlist(optionsArray);
+			}
+			else
 			{
 				root.filltestlist(origArray);
 			}
